@@ -1,8 +1,22 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from '../assets/logo.png';
+import useAuth from "../hooks/useAuth";
+import toast from "react-hot-toast";
 
 
 const NavBar = () => {
+  const { user, signOutUser } = useAuth()
+  const navigate = useNavigate()
+
+  const signOut = () => {
+    signOutUser()
+      .then(res => {
+        navigate('/volunteer/login')
+      })
+      .catch(err => {
+      toast.error('signOut Unsucessfull')
+    })
+  }
 
   const links = (
     <>
@@ -85,19 +99,30 @@ const NavBar = () => {
         <div className="navbar-end">
         
           
-         
-            <Link
-            to="/volunteer/login"
-            className=" border border-[#2f3941] px-6 py-2 rounded-xl mr-4 text-sm hover:bg-blue-500 hover:text-white hover:border-white transition-all duration-1000 ease-out "
+          {
+            user ?  <button
+              className=" border bg-blue-500 border-white text-white  px-6 py-2 rounded-xl mr-4 text-sm hover:bg-transparent  hover:text-black hover:border-[#2f3941] transition-all duration-1000 ease-out "
+              onClick={signOut}
             >
-              Login
-            </Link>
-            <Link
-            to="/volunteer/register"
-            className=" border border-[#2f3941] px-6 py-2 rounded-xl mr-4 text-sm hover:bg-blue-500 hover:text-white hover:border-white transition-all duration-1000 ease-out "
-            >
-              Register
-            </Link>
+              SignOut 
+            </button>
+              :
+              <>
+                <Link
+                  to="/volunteer/login"
+                  className=" border border-[#2f3941] px-6 py-2 rounded-xl mr-4 text-sm hover:bg-blue-500 hover:text-white hover:border-white transition-all duration-1000 ease-out "
+                >
+                  Login
+                </Link>
+                <Link
+                  to="/volunteer/register"
+                  className=" border border-[#2f3941] px-6 py-2 rounded-xl mr-4 text-sm hover:bg-blue-500 hover:text-white hover:border-white transition-all duration-1000 ease-out "
+                >
+                  Register
+                </Link>
+              </>
+         }
+           
         
         </div>
       </div>

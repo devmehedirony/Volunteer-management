@@ -3,6 +3,9 @@ import HomeLayout from "../Layouts/HomeLayout";
 import VolunteerPost from "../pages/VolunteerPost";
 import MyProfile from "../pages/MyProfile";
 import Home from "../pages/Home";
+import Register from "../pages/auth/Register";
+import Login from "../pages/auth/Login";
+import PrivateRoutes from "./PrivateRoutes";
 
 
 
@@ -20,11 +23,19 @@ const router = createBrowserRouter([
   },
   {
     path: 'all-volunteer-need-posts',
-    element: <VolunteerPost/>
+    element: <PrivateRoutes><VolunteerPost /></PrivateRoutes>
   },
   {
     path: 'my-profile',
-    element: <MyProfile/>,
+    element: <PrivateRoutes><MyProfile /></PrivateRoutes>,
+  },
+  {
+    path: 'volunteer/register',
+    element: <Register/>
+  },
+  {
+    path: 'volunteer/login',
+    element: <Login/>
   }
   
 ]);
