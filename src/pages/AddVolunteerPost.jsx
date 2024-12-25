@@ -19,7 +19,6 @@ const AddVolunteerPost = () => {
     const deadline = startDate.toISOString().split('T')[0]
     data.deadline = deadline
     
-    console.log(data);
     
 
     axios.post('http://localhost:5000/need-volunteer-posts', data)

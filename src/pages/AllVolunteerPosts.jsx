@@ -5,7 +5,7 @@ import VolunteerCard from "../components/VolunteerCard";
 
 const AllVolunteerPosts = () => {
   const allVolunteerPosts = useLoaderData()
-  console.log(allVolunteerPosts);
+
   return (
     <div>
       <header>
