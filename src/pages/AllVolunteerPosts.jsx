@@ -11,7 +11,7 @@ const AllVolunteerPosts = () => {
       <header>
         <NavBar/>
       </header>
-      <main>
+      <main className="grid grid-cols-3 gap-10 w-9/12 mx-auto my-10">
         {
           allVolunteerPosts.map(post=> <VolunteerCard key={post._id} post={post}></VolunteerCard>)
         }

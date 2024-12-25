@@ -16,7 +16,7 @@ const Hero = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 6000,
   };
   return (
     <div>
@@ -30,8 +30,8 @@ const Hero = () => {
           <div className="absolute inset-0 bg-black bg-opacity-30"></div>
 
           <div className="absolute top-56 w-screen flex justify-center flex-col items-center  text-white">
-            <h2 className="md:text-7xl text-3xl font-bold text-center mb-6"><Typewriter
-              words={['Empower Volunteers, Build Communities']}
+            <h2 className="md:text-5xl text-3xl font-bold text-center mb-6 bg-white bg-opacity-30 text-white py-4 px-8"><Typewriter
+              words={['We Try To Help People With Volunteering ']}
               loop={true}
               cursor
               cursorStyle='|'
@@ -39,8 +39,13 @@ const Hero = () => {
               deleteSpeed={50}
               delaySpeed={2000}
             /></h2>
-            <Fade ><p className="font-normal w-[400px] md:w-[1000px] text-center">Empower Volunteers, Build Communities emphasizes the transformative power of volunteering. It highlights how empowering individuals with the tools, opportunities, and support to volunteer can lead to the creation of stronger, more connected communities.</p></Fade>
-            <Link to='/all-Volunteer'>  <button className="text-white border-2 border-white rounded-full px-16 py-4 mt-8">All Volunteer</button></Link>
+            
+            <div className="flex items-center gap-4">
+              <Link to='/add-volunteer-need-posts'>  <button className="text-white border-2 border-blue-500 px-16 py-4 mt-8 bg-blue-500 ">Need Volunteer</button></Link>
+
+              <Link to='/all-volunteer-need-posts'><button className="text-white border-2 border-white  px-16 py-4 mt-8 cursor-pointer">All Volunteer Need Posts</button></Link>
+            </div>
+
           </div>
 
         </div>
@@ -54,8 +59,8 @@ const Hero = () => {
           <div className="absolute inset-0 bg-black bg-opacity-30"></div>
 
           <div className="absolute top-56 w-screen flex justify-center flex-col items-center  text-white">
-            <h2 className="md:text-7xl text-3xl font-bold text-center mb-6"><Typewriter
-              words={['Heroes Among Us: Volunteer Network']}
+            <h2 className="md:text-5xl text-3xl font-bold text-center mb-6 bg-white bg-opacity-30 text-white py-4 px-8"><Typewriter
+              words={['We Try To Help People With Volunteering ']}
               loop={true}
               cursor
               cursorStyle='|'
@@ -63,8 +68,13 @@ const Hero = () => {
               deleteSpeed={50}
               delaySpeed={2000}
             /></h2>
-            <Fade><p className="font-normal  w-[400px] md:w-[500px] text-center">Connecting everyday heroes to inspire, collaborate, and create lasting positive change through volunteering.</p></Fade>
-            <Link to='/all-reviews'> <button className="text-white border-2 border-white rounded-full px-16 py-4 mt-8">See Reviews</button></Link>
+
+           
+            <div className="flex items-center gap-4">
+              <Link to='/add-volunteer-need-posts'>  <button className="text-white border-2 border-blue-500 px-16 py-4 mt-8 bg-blue-500 ">Need Volunteer</button></Link>
+
+              <Link to='/all-volunteer-need-posts'><button className="text-white border-2 border-white  px-16 py-4 mt-8 cursor-pointer">All Volunteer Need Posts</button></Link>
+            </div>
           </div>
         </div>
         <div className="relative">
@@ -77,8 +87,8 @@ const Hero = () => {
           <div className="absolute inset-0 bg-black bg-opacity-30"></div>
 
           <div className="absolute top-56 w-screen flex justify-center flex-col items-center  text-white">
-            <h2 className="md:text-7xl text-3xl font-bold text-center mb-6"><Typewriter
-              words={['Your Time, Your Impact: Volunteer Portal']}
+            <h2 className="md:text-5xl text-3xl font-bold text-center mb-6 bg-white bg-opacity-30 text-white py-4 px-8"><Typewriter
+              words={['We Try To Help People With Volunteering ']}
               loop={true}
               cursor
               cursorStyle='|'
@@ -86,8 +96,12 @@ const Hero = () => {
               deleteSpeed={50}
               delaySpeed={2000}
             /></h2>
-            <Fade> <p className="font-normal  w-[400px] md:w-[1000px] text-center"> Your Time, Your Impact: Volunteer Portal highlights the value of even the smallest contributions of time in creating meaningful change. This platform empowers individuals to discover volunteer opportunities that align with their passions and schedules, making it easy to make a difference.</p></Fade>
-            <Link to='/all-reviews'> <button className="text-white border-2 border-white rounded-full px-16 py-4 mt-8">See Reviews</button></Link>
+
+            <div className="flex items-center gap-4">
+              <Link to='/add-volunteer-need-posts'>  <button className="text-white border-2 border-blue-500 px-16 py-4 mt-8 bg-blue-500 ">Need Volunteer</button></Link>
+
+              <Link to='/all-volunteer-need-posts'><button className="text-white border-2 border-white  px-16 py-4 mt-8 cursor-pointer">All Volunteer Need Posts</button></Link>
+            </div>
           </div>
         </div>
       </Slider>
