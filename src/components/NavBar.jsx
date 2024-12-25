@@ -44,18 +44,7 @@ const NavBar = () => {
           All volunteer Need posts
             </NavLink>
           </li>
-          <li className="text-lg">
-            <NavLink
-              className={({ isActive }) =>
-            isActive
-              ? 'text-blue-600 text-base  font-medium'
-              : 'text-base'
-              }
-              to="/my-profile"
-            >
-              my-profile
-            </NavLink>
-          </li>
+         
         
  
       
@@ -100,12 +89,31 @@ const NavBar = () => {
         
           
           {
-            user ?  <button
-              className=" border bg-blue-500 border-white text-white  px-6 py-2 rounded-xl mr-4 text-sm hover:bg-transparent  hover:text-black hover:border-[#2f3941] transition-all duration-1000 ease-out "
-              onClick={signOut}
-            >
-              SignOut 
-            </button>
+            user ? <div className='flex items-center '>
+              <div className="tooltip  tooltip-left" data-tip={user.displayName}>
+                <div className="dropdown dropdown-hover">
+                  <img className='h-10 rounded-full mr-4' src={user.photoURL} alt="" />
+                </div>
+              </div>
+              <div className="mr-8">
+                <details className="dropdown">
+                  <summary className="btn hover:bg-transparent   bg-white py-0 text-blue-500 font-semibold px-0 border-none">My Profile</summary>
+                  <ul className="menu dropdown-content  rounded-box z-[1] w-52 p-2 shadow">
+                    <li className="bg-blue-500 text-white mb-2"><Link to='/all-volunteer-need-posts'>Add Volunteer need Post</Link></li>
+                    <li className="bg-blue-500 text-white"><Link to='/manage-myposts'>Manage My Posts</Link></li>
+                  </ul>
+                </details>
+              </div>
+              <div>
+                <button
+                  className=" border bg-blue-500 border-white text-white  px-6 py-2 rounded-xl mr-4 text-sm hover:bg-transparent  hover:text-black hover:border-[#2f3941] transition-all duration-1000 ease-out "
+                  onClick={signOut}
+                >
+                  SignOut
+                </button>
+              </div>
+
+            </div>
               :
               <>
                 <Link
