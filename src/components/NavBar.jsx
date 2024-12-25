@@ -75,10 +75,10 @@ const NavBar = () => {
              {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">
+          <Link to='/' className="text-xl flex item-center gap-2">
             <img className="h-10" src={logo} alt="" />
             <h2 className="text-2xl font-normal">Volunteers</h2>
-          </a>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="gap-8 menu-horizontal  px-1 ">
