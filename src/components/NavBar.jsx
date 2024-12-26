@@ -100,7 +100,7 @@ const NavBar = () => {
                   <summary className="btn hover:bg-transparent   bg-white py-0 text-blue-500 font-semibold px-0 border-none">My Profile</summary>
                   <ul className="menu dropdown-content  rounded-box z-[1] w-52 p-2 shadow">
                     <li className="bg-blue-500 text-white mb-2"><Link to='/add-volunteer-need-posts'>Add Volunteer need Post</Link></li>
-                    <li className="bg-blue-500 text-white"><Link to='/manage-myposts'>Manage My Posts</Link></li>
+                    <li className="bg-blue-500 text-white"><Link to='/manage-my-posts'>Manage My Posts</Link></li>
                   </ul>
                 </details>
               </div>
