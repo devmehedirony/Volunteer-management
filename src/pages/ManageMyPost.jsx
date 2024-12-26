@@ -89,13 +89,13 @@ const ManageMyPost = () => {
       </header>
       <main>
         <div>
-          <h2 className='text-3xl font-bold bg-blue-500 text-white px-10 py-2 w-6/12 mx-auto text-center  mt-6 mb-10 '>My Volunteer Needed Post</h2>
-          <div className="overflow-x-auto w-6/12 mx-auto">
-            <table className="table">
+          <h2 className='md:text-3xl text-lg font-bold bg-blue-500 text-white md:px-10 px-4 py-2 md:w-6/12 w-11/12 mx-auto text-center  mt-6 md:mb-10 mb-2 '>My Volunteer Needed Post</h2>
+          <div className="overflow-x-auto md:w-6/12 w-11/12 mx-auto">
+            <table className="table ">
               
              
               <tbody>
-                {/* row 1 */}
+              
                 {
                   myPosts.length > 0 ? myPosts.map(post => <tr key={post._id}>
 
@@ -114,13 +114,15 @@ const ManageMyPost = () => {
                         </div>
                       </div>
                     </td>
-                    <td>
+                    <td className='md:block hidden'>
                       <p>volunteersNeeded: <span className='font-bold text-blue-500'>{post.volunteersNeeded}</span></p>
                     </td>
-                    <td className='flex flex-col items-center '>
-                      {post.Category}
-
-                      <span className="badge badge-ghost badge-sm">{post.deadline}</span>
+                    <td className=' hidden md:block'>
+                      <div className='flex flex-col items-center'>
+                        {post.Category}
+  
+                        <span className="badge badge-ghost badge-sm">{post.deadline}</span>
+                      </div>
                     </td>
 
 
@@ -141,9 +143,9 @@ const ManageMyPost = () => {
           </div>
         </div>
 
-        <div className='my-32'>
-          <h2 className='text-3xl font-bold bg-blue-500 text-white px-10 py-2 w-6/12 mx-auto text-center  mt-6 mb-10 '>My Volunteer Request Post</h2>
-          <div className="overflow-x-auto w-6/12 mx-auto">
+        <div className='mt-16  md:mt-32 mb-20'>
+          <h2 className='md:text-3xl text-lg font-bold bg-blue-500 text-white md:px-10 px-4 py-2 md:w-6/12 w-11/12 mx-auto text-center  mt-6 md:mb-10 mb-2 '>My Volunteer Request Post</h2>
+          <div className="overflow-x-auto md:w-6/12 w-11/12 mx-auto">
             <table className="table">
 
 
@@ -171,9 +173,11 @@ const ManageMyPost = () => {
                     </td>
 
                     <td className='flex flex-col items-center '>
-                      {requestVol.Category}
-
-                      <span className="badge badge-ghost badge-sm">{requestVol.deadline}</span>
+                     <div className='hidden md:block'>
+                        {requestVol.Category}
+  
+                        <span className="badge badge-ghost badge-sm">{requestVol.deadline}</span>
+                     </div>
                     </td>
 
 

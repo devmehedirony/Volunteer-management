@@ -23,10 +23,10 @@ const AllVolunteerPosts = () => {
       <header>
         <NavBar/>
       </header>
-      <section  className="flex justify-center gap-2 my-4">
+      <section  className="flex justify-center gap-2 md:my-4 mt-10 px-4">
         <input onChange={e=> setSearch(e.target.value)} type="text" placeholder="Type here" className="input input-bordered rounded-none w-full max-w-xs" /> <button className="btn rounded-none bg-blue-500 text-white ">Search</button>
       </section>
-      <main className="grid grid-cols-3 gap-10 w-9/12 mx-auto my-10">
+      <main className="grid md:grid-cols-3 grid-cols-1 gap-10 md:w-9/12 w-11/12 mx-auto my-10">
         {
           data.map(post=> <VolunteerCard key={post._id} post={post}></VolunteerCard>)
         }

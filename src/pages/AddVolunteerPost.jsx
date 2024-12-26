@@ -144,7 +144,7 @@ const AddVolunteerPost = () => {
                 <label className="label">
                   <span className="label-text ">Deadline</span>
                 </label>
-                <DatePicker className=" border-blue-600 border-2 px-4 rounded-xl py-3 w-[430px]" selected={startDate}
+                <DatePicker className=" border-blue-600 border-2 px-4 rounded-xl py-3 w-full  md:w-[430px]" selected={startDate}
                   dateFormat="yyyy/MM/dd" 
                   onChange={(date) => setStartDate(date)}
                  

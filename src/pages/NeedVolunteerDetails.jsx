@@ -19,7 +19,7 @@ const NeedVolunteerDetails = () => {
       </header>
       <main>
         <div className="hero">
-          <div className="hero-content flex-col lg:flex-row">
+          <div className="hero-content px-2 flex-col lg:flex-row">
             <img
               src={thumbnail}
               className="w-[600px] object-cover h-[500px] rounded-lg shadow-2xl" />

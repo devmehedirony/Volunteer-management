@@ -16,7 +16,7 @@ const Hero = () => {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 6000,
+    autoplaySpeed: 600000,
   };
   return (
     <div>
@@ -30,7 +30,7 @@ const Hero = () => {
           <div className="absolute inset-0 bg-black bg-opacity-30"></div>
 
           <div className="absolute top-56 w-screen flex justify-center flex-col items-center  text-white">
-            <h2 className="md:text-5xl text-3xl font-bold text-center mb-6 bg-white bg-opacity-30 text-white py-4 px-8"><Typewriter
+            <h2 className="md:text-5xl text-2xl font-bold text-center mb-6 bg-white bg-opacity-30 text-white py-4 px-8"><Typewriter
               words={['We Try To Help People With Volunteering ']}
               loop={true}
               cursor
@@ -41,9 +41,9 @@ const Hero = () => {
             /></h2>
             
             <div className="flex items-center gap-4">
-              <Link to='/add-volunteer-need-posts'>  <button className="text-white border-2 border-blue-500 px-16 py-4 mt-8 bg-blue-500 ">Need Volunteer</button></Link>
+              <Link to='/add-volunteer-need-posts'>  <button className="text-white border-2 border-blue-500 md:px-16 px-4 py-4 mt-8 text-xs md:text-base bg-blue-500 ">Need Volunteer</button></Link>
 
-              <Link to='/all-volunteer-need-posts'><button className="text-white border-2 border-white  px-16 py-4 mt-8 cursor-pointer">All Volunteer Need Posts</button></Link>
+              <Link to='/all-volunteer-need-posts'><button className="text-white border-2 border-white  md:px-16 px-2 py-4 mt-8 cursor-pointer">All Volunteer Need Posts</button></Link>
             </div>
 
           </div>
@@ -59,7 +59,7 @@ const Hero = () => {
           <div className="absolute inset-0 bg-black bg-opacity-30"></div>
 
           <div className="absolute top-56 w-screen flex justify-center flex-col items-center  text-white">
-            <h2 className="md:text-5xl text-3xl font-bold text-center mb-6 bg-white bg-opacity-30 text-white py-4 px-8"><Typewriter
+            <h2 className="md:text-5xl text-2xl font-bold text-center mb-6 bg-white bg-opacity-30 text-white py-4 px-8"><Typewriter
               words={['We Try To Help People With Volunteering ']}
               loop={true}
               cursor
@@ -71,9 +71,9 @@ const Hero = () => {
 
            
             <div className="flex items-center gap-4">
-              <Link to='/add-volunteer-need-posts'>  <button className="text-white border-2 border-blue-500 px-16 py-4 mt-8 bg-blue-500 ">Need Volunteer</button></Link>
+              <Link to='/add-volunteer-need-posts'>  <button className="text-white border-2 border-blue-500 md:px-16 px-4 py-4 mt-8 text-xs md:text-base bg-blue-500 ">Need Volunteer</button></Link>
 
-              <Link to='/all-volunteer-need-posts'><button className="text-white border-2 border-white  px-16 py-4 mt-8 cursor-pointer">All Volunteer Need Posts</button></Link>
+              <Link to='/all-volunteer-need-posts'><button className="text-white border-2 border-white  md:px-16 px-2 py-4 mt-8 cursor-pointer">All Volunteer Need Posts</button></Link>
             </div>
           </div>
         </div>
@@ -87,7 +87,7 @@ const Hero = () => {
           <div className="absolute inset-0 bg-black bg-opacity-30"></div>
 
           <div className="absolute top-56 w-screen flex justify-center flex-col items-center  text-white">
-            <h2 className="md:text-5xl text-3xl font-bold text-center mb-6 bg-white bg-opacity-30 text-white py-4 px-8"><Typewriter
+            <h2 className="md:text-5xl text-2xl font-bold text-center mb-6 bg-white bg-opacity-30 text-white py-4 px-8"><Typewriter
               words={['We Try To Help People With Volunteering ']}
               loop={true}
               cursor
@@ -98,9 +98,9 @@ const Hero = () => {
             /></h2>
 
             <div className="flex items-center gap-4">
-              <Link to='/add-volunteer-need-posts'>  <button className="text-white border-2 border-blue-500 px-16 py-4 mt-8 bg-blue-500 ">Need Volunteer</button></Link>
+              <Link to='/add-volunteer-need-posts'>  <button className="text-white border-2 border-blue-500 md:px-16 px-4 py-4 mt-8 text-xs md:text-base bg-blue-500 ">Need Volunteer</button></Link>
 
-              <Link to='/all-volunteer-need-posts'><button className="text-white border-2 border-white  px-16 py-4 mt-8 cursor-pointer">All Volunteer Need Posts</button></Link>
+              <Link to='/all-volunteer-need-posts'><button className="text-white border-2 border-white  md:px-16 px-2 py-4 mt-8 cursor-pointer">All Volunteer Need Posts</button></Link>
             </div>
           </div>
         </div>

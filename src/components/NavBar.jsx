@@ -93,8 +93,8 @@ const NavBar = () => {
             </ul>
           </div>
           <Link to='/' className="text-xl flex item-center gap-2">
-            <img className="h-10" src={logo} alt="" />
-            <h2 className="text-2xl font-normal">Volunteers</h2>
+            <img className="md:h-10 h-6" src={logo} alt="" />
+            <h2 className="text-2xl hidden md:block font-normal">Volunteers</h2>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
@@ -109,12 +109,12 @@ const NavBar = () => {
             user ? <div className='flex items-center '>
               <div className="tooltip  tooltip-left" data-tip={user.displayName}>
                 <div className="dropdown dropdown-hover">
-                  <img className='h-10 rounded-full mr-4' src={user.photoURL} alt="" />
+                  <img className='h-10 hidden md:block rounded-full mr-4' src={user.photoURL} alt="" />
                 </div>
               </div>
               <div className="mr-8">
                 <details className="dropdown">
-                  <summary className="btn hover:bg-transparent   bg-transparent py-0 text-blue-500 font-semibold px-0 border-none">My Profile</summary>
+                  <summary className="btn hover:bg-transparent text-xs md:text-base   bg-transparent py-0 text-blue-500 font-semibold px-0 border-none">My Profile</summary>
                   <ul className="menu dropdown-content  rounded-box z-[1] w-52 p-2 shadow">
                     <li className="bg-blue-500 text-white mb-2"><Link to='/add-volunteer-need-posts'>Add Volunteer need Post</Link></li>
                     <li className="bg-blue-500 text-white"><Link to='/manage-my-posts'>Manage My Posts</Link></li>
@@ -123,7 +123,7 @@ const NavBar = () => {
               </div>
               <div>
                 <button
-                  className="  bg-blue-500 border-white text-white  px-6 py-2 rounded-xl mr-4 text-sm hover:bg-transparent  hover:text-blue-500 hover:border-[#2f3941] transition-all duration-1000 ease-out "
+                  className="  bg-blue-500 border-white text-white  md:px-6 px-2 py-2 text-xs  rounded-xl mr-4 md:text-sm hover:bg-transparent  hover:text-blue-500 hover:border-[#2f3941] transition-all duration-1000 ease-out "
                   onClick={signOut}
                 >
                   SignOut
