@@ -2,7 +2,9 @@ import  { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
 import axios from 'axios';
 import useAuth from '../hooks/useAuth';
-import { MdDeleteSweep, MdOutlineEdit } from 'react-icons/md';
+import { MdCancel, MdDeleteSweep, MdOutlineEdit } from 'react-icons/md';
+import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 
 const ManageMyPost = () => {
@@ -19,6 +21,60 @@ const ManageMyPost = () => {
     axios.get(`http://localhost:5000/be-a-volunteer?email=${user.email}`)
     .then(res=> setRequseted(res.data))
   }, [user.email])
+
+  const handleRequestDelete = id => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Cancel The Request",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Cancel Request"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios.delete(`http://localhost:5000/be-a-volunteer/${id}`)
+          .then(res => {
+            if (res.data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+              });
+              const remainingRequest = requested.filter(request=> request._id !== id)
+              setRequseted(remainingRequest)
+            }
+          })
+      }
+    });
+  }
+
+  const handleNeedVolPostsDelete = id => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "Delete Request",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Delete It"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios.delete(`http://localhost:5000/need-volunteer-posts/${id}`)
+          .then(res => {
+            if (res.data.deletedCount) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success"
+              });
+              const remainingPosts = myPosts.filter(posts => posts._id !== id)
+              setPosts(remainingPosts)
+            }
+          })
+      }
+    });
+  }
   return (
     <div>
       <header>
@@ -34,7 +90,7 @@ const ManageMyPost = () => {
               <tbody>
                 {/* row 1 */}
                 {
-                  myPosts.map(post => <tr key={post._id}>
+                  myPosts.length > 0 ? myPosts.map(post => <tr key={post._id}>
 
                     <td>
                       <div className="flex items-center gap-3">
@@ -56,16 +112,20 @@ const ManageMyPost = () => {
                     </td>
                     <td className='flex flex-col items-center '>
                       {post.Category}
-                      
+
                       <span className="badge badge-ghost badge-sm">{post.deadline}</span>
                     </td>
-                   
-                    
+
+
                     <th>
-                      <button className='text-3xl mr-4'><MdOutlineEdit /></button>
-                      <button className="btn btn-ghost text-3xl"><MdDeleteSweep /></button>
+                      <div className='flex items-center'>
+                        <Link to={`/update-need-volunteers-posts/${post._id}`} className="tooltip-left tooltip" data-tip="update"><button className='bg-blue-500 px-4 py-1 text-white mr-4'>Update</button></Link>
+                        <button onClick={() => handleNeedVolPostsDelete(post._id)} className=" tooltip tooltip-left text-3xl " data-tip="Delete Post"><MdDeleteSweep /></button>
+                      </div>
                     </th>
-                  </tr>)
+                  </tr>) : <div className="text-center py-8">
+                    <p className="text-2xl font-bold text-gray-600">You have no volunteer Need Posts</p>
+                  </div> 
                 }
                 
               </tbody>
@@ -74,7 +134,7 @@ const ManageMyPost = () => {
           </div>
         </div>
 
-        <div className='mt-32'>
+        <div className='my-32'>
           <h2 className='text-3xl font-bold bg-blue-500 text-white px-10 py-2 w-6/12 mx-auto text-center  mt-6 mb-10 '>My Volunteer Request Post</h2>
           <div className="overflow-x-auto w-6/12 mx-auto">
             <table className="table">
@@ -82,8 +142,10 @@ const ManageMyPost = () => {
 
               <tbody>
                 {/* row 1 */}
+               
                 {
-                  requested.map(requestVol => <tr key={requestVol._id}>
+                  
+                  requested.length > 0 ? requested.map(requestVol => <tr key={requestVol._id}>
 
                     <td>
                       <div className="flex items-center gap-3">
@@ -100,7 +162,7 @@ const ManageMyPost = () => {
                         </div>
                       </div>
                     </td>
-                   
+
                     <td className='flex flex-col items-center '>
                       {requestVol.Category}
 
@@ -108,11 +170,13 @@ const ManageMyPost = () => {
                     </td>
 
 
-                    <th>
-                      <button className='text-3xl mr-4'><MdOutlineEdit /></button>
-                      <button className="btn btn-ghost text-3xl"><MdDeleteSweep /></button>
+                    <th >
+                        <button onClick={() => handleRequestDelete(requestVol._id)} className="btn btn-ghost tooltip tooltip-left text-3xl " data-tip="Cancel Request"><MdCancel /></button>
                     </th>
-                  </tr>)
+                  </tr>) : <div className="text-center py-8">
+                      <p className="text-lg text-gray-600">You have no volunteer requests.</p>
+                      <p className="text-gray-500">Add a new request from the “Be a Volunteer” page</p>
+                  </div> 
                 }
 
               </tbody>

@@ -33,7 +33,7 @@ const NeedVolunteerDetails = () => {
                 <span className='flex items-center gap-2 font-bold mt-2 bg-gray-400 text-white py-1 px-2'><MdMarkEmailRead /> OrganizerEmail: <span className='font-bold'>{organizerEmail}</span></span>
               </div>
               <div className=" flex justify-center pt-4">
-                <Link to='be-volunteer'><button className="border-2  py-2 px-6 font-bold">Be a Volunteer</button></Link>
+                <Link to={`/be-a-volunteer/${_id}`}><button className="border-2  py-2 px-6 font-bold">Be a Volunteer</button></Link>
               </div>
             </div>
           </div>

@@ -1,17 +1,18 @@
-import { useLoaderData } from "react-router-dom";
-import NavBar from "../components/NavBar";
-import useAuth from "../hooks/useAuth";
-import axios from "axios";
 import DatePicker from "react-datepicker";
 import { useState } from "react";
+import "react-datepicker/dist/react-datepicker.css";
+import axios from "axios";
 import Swal from "sweetalert2";
+import { useLoaderData } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
+import NavBar from "../components/NavBar";
 
-
-const BeAVolunteer = () => {
-  const detailsPageData = useLoaderData()
-  const [startDate, setStartDate] = useState(new Date());
+const UpdateVolNeedPosts = () => {
   const { user } = useAuth()
-  const { _id, thumbnail, PostTitle, description, Category, Location, OrganizerName, organizerEmail, volunteersNeeded, deadline } = detailsPageData
+  const [startDate, setStartDate] = useState(new Date());
+  const needPost = useLoaderData()
+  const { _id, thumbnail, PostTitle, description, Category, Location, OrganizerName, organizerEmail, volunteersNeeded, deadline } = needPost
+  console.log(needPost);
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -19,39 +20,36 @@ const BeAVolunteer = () => {
     const initialData = Object.fromEntries(formData.entries())
     const { volunteersNeeded, ...data } = initialData
     data.volunteersNeeded = parseInt(volunteersNeeded)
-    
-    
+    const deadline = startDate.toISOString().split('T')[0]
+    data.deadline = deadline
+console.log(data);
 
 
-
-    axios.post('http://localhost:5000/be-a-volunteer', data)
+    axios.put(`http://localhost:5000/need-volunteer-posts/${_id}`, data)
       .then(res => {
-        if (res.data.insertedId) {
+        console.log(res.data);
+        if (res.data.modifiedCount) {
           Swal.fire({
-            title: "Submit",
-            text: "Successfully Submited",
+            title: "Need Vol Post Update",
+            text: "Successfully Updated",
             icon: "success"
           });
         }
       })
-    
-    axios.patch(`http://localhost:5000/volunteers-needed/${_id}`)
-      .then(res => console.log(res.data))
-  
   }
-
-
-
   return (
-    <div>
+    <div >
       <header>
-        <NavBar/>
+        <NavBar />
       </header>
+
+
+
       <main>
         <div className=" flex justify-center items-center">
 
           <div className="card bg-base-100  shrink-0 md:p-10 p-0 rounded-2xl">
-            <h2 className="text-3xl font-bold text-center mt-4 md:mt-0">Be a Volunteer</h2>
+            <h2 className="text-3xl font-bold text-center mt-4 md:mt-0">volunteer need Post Update</h2>
             <form onSubmit={handleSubmit} className="card-body  space-y-2">
 
               <div className="flex flex-col md:flex-row items-center gap-4">
@@ -66,7 +64,6 @@ const BeAVolunteer = () => {
                     placeholder="thumbnail"
                     className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full "
                     required
-                    readOnly
                   />
 
                 </div>
@@ -76,12 +73,11 @@ const BeAVolunteer = () => {
                   </label>
                   <input
                     type="text"
-                    defaultValue={PostTitle}
                     name="PostTitle"
+                    defaultValue={PostTitle}
                     placeholder="PostTitle"
                     className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
                     required
-                    readOnly
                   />
                 </div>
               </div>
@@ -97,15 +93,18 @@ const BeAVolunteer = () => {
                     placeholder="description"
                     className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
                     required
-                    readOnly
                   />
                 </div>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text ">Category</span>
                   </label>
-                  <select  defaultValue={Category} name="Category" className="select md:w-[215px] w-72 border-2 border-[#F3F3F3] rounded-2xl">
-                    <option>{Category}</option>
+                  <select defaultValue={Category} name="Category" className="select md:w-[215px] w-72 border-2 border-[#F3F3F3] rounded-2xl">
+                    <option disabled >Category </option>
+                    <option value={'healthcare'}>healthcare</option>
+                    <option value={'education'}>education</option>
+                    <option value={'social service'}>social service</option>
+                    <option value={'animal welfare'}>animal welfare</option>
                   </select>
 
 
@@ -121,11 +120,10 @@ const BeAVolunteer = () => {
                   <input
                     type="text"
                     name="Location"
+                    defaultValue={Location}
                     placeholder="Location"
                     className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
                     required
-                    defaultValue={Location}
-                    readOnly
                   />
 
 
@@ -142,7 +140,6 @@ const BeAVolunteer = () => {
                     placeholder="No. of volunteers needed"
                     className="input border-2 border-[#F3F3F3] rounded-2xl  [&::-webkit-inner-spin-button]:appearance-none  w-72 md:w-full"
                     required
-                    readOnly
                   />
 
 
@@ -153,12 +150,10 @@ const BeAVolunteer = () => {
                 <label className="label">
                   <span className="label-text ">Deadline</span>
                 </label>
-                <input
-                  name="deadline"
-                  type="text"
-                  defaultValue={deadline} readOnly
-                  className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
-
+                <DatePicker className=" border-blue-600 border-2 px-4 rounded-xl py-3 w-[430px]"      selected={deadline}
+                  dateFormat="yyyy/MM/dd"
+                  onChange={(date) => setStartDate(date)}
+                  
 
                 />
               </div>
@@ -170,9 +165,8 @@ const BeAVolunteer = () => {
                   <input
                     name="OrganizerName"
                     type="text"
-                    defaultValue={OrganizerName} readOnly
+                    defaultValue={user?.displayName} readOnly
                     className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
-                    
 
                   />
 
@@ -186,39 +180,6 @@ const BeAVolunteer = () => {
                   <input
                     type="email"
                     name="organizerEmail"
-                    defaultValue={organizerEmail} readOnly
-                    className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
-
-                  />
-
-
-                </div>
-              </div>
-
-              <div className="flex flex-col md:flex-row items-center gap-4">
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text ">volunteer Name</span>
-                  </label>
-                  <input
-                    name="volunteerName"
-                    type="text"
-                    defaultValue={user?.displayName} readOnly
-                    className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
-
-
-                  />
-
-
-                </div>
-
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text ">volunteer Email</span>
-                  </label>
-                  <input
-                    type="email"
-                    name="volunteerEmail"
                     defaultValue={user?.email} readOnly
                     className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
 
@@ -228,41 +189,11 @@ const BeAVolunteer = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col md:flex-row items-center gap-4">
-
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text ">Suggestion </span>
-                  </label>
-                  <input
-                    type="text"
-                    name="Suggestion"
-                    placeholder="Suggestion"
-                    className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
-                    required
-                  />
-
-
-                </div>
-
-                <div className="form-control">
-                  <label className="label">
-                    <span className="label-text ">Status</span>
-                  </label>
-                  <select defaultValue={'requested'} name="status" className="select md:w-[215px] w-72 border-2 border-[#F3F3F3] rounded-2xl">
-                    <option>requested</option>
-                  </select>
-
-
-                </div>
-
-              </div>
 
 
               <div className="form-control mt-2">
-                <button className="btn bg-blue-500 rounded-lg text-white">Request</button>
+                <button className="btn bg-blue-500 rounded-lg text-white">Update Posts</button>
               </div>
-
             </form>
 
           </div>
@@ -270,11 +201,11 @@ const BeAVolunteer = () => {
 
       </main>
 
-      <footer>
 
+      <footer>
       </footer>
     </div>
   );
 };
 
-export default BeAVolunteer;
+export default UpdateVolNeedPosts;

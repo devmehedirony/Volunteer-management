@@ -10,6 +10,7 @@ import AllVolunteerPosts from "../pages/AllVolunteerPosts";
 import NeedVolunteerDetails from "../pages/NeedVolunteerDetails";
 import BeAVolunteer from "../pages/BeAVolunteer";
 import ManageMyPost from "../pages/ManageMyPost";
+import UpdateVolNeedPosts from "../pages/UpdateVolNeedPosts";
 
 
 
@@ -27,17 +28,17 @@ const router = createBrowserRouter([
   },
   {
     path: 'all-volunteer-need-posts',
-    element: <PrivateRoutes><AllVolunteerPosts /></PrivateRoutes>,
+    element: <AllVolunteerPosts />,
   },
   {
     path: 'all-volunteer-need-posts/details/:id',
     element: <PrivateRoutes><NeedVolunteerDetails /></PrivateRoutes>,
-    loader: ({ params }) => fetch(`http://localhost:5000/need-volunteer-posts/details/${params.id}`)
+    loader: ({ params }) => fetch(`http://localhost:5000/need-volunteer-posts/${params.id}`)
   },
   {
-    path: 'all-volunteer-need-posts/details/:id/be-volunteer',
+    path: 'be-a-volunteer/:id',
     element: <PrivateRoutes><BeAVolunteer /></PrivateRoutes>,
-    loader: ({ params }) => fetch(`http://localhost:5000/need-volunteer-posts/details/${params.id}`)
+    loader: ({ params }) => fetch(`http://localhost:5000/need-volunteer-posts/${params.id}`)
   },
   {
     path: 'add-volunteer-need-posts',
@@ -46,6 +47,11 @@ const router = createBrowserRouter([
   {
     path: 'manage-my-posts',
     element: <PrivateRoutes><ManageMyPost/></PrivateRoutes>
+  },
+  {
+    path: 'update-need-volunteers-posts/:id',
+    element: <PrivateRoutes><UpdateVolNeedPosts /></PrivateRoutes>,
+    loader: ({ params }) => fetch(`http://localhost:5000/need-volunteer-posts/${params.id}`)
   },
   {
     path: 'my-profile',
