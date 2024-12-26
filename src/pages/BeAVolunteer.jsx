@@ -12,7 +12,9 @@ const BeAVolunteer = () => {
   const detailsPageData = useLoaderData()
   const [startDate, setStartDate] = useState(new Date());
   const { user } = useAuth()
+  
   const { _id, thumbnail, PostTitle, description, Category, Location, OrganizerName, organizerEmail, volunteersNeeded, deadline } = detailsPageData
+  const [noNeedVolunteer, setVolunteer] = useState(volunteersNeeded)
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -142,7 +144,7 @@ const BeAVolunteer = () => {
                   <input
                     type="number"
                     name="volunteersNeeded"
-                    defaultValue={volunteersNeeded}
+                    defaultValue={noNeedVolunteer}
                     placeholder="No. of volunteers needed"
                     className="input border-2 border-[#F3F3F3] rounded-2xl  [&::-webkit-inner-spin-button]:appearance-none  w-72 md:w-full"
                     required
@@ -264,7 +266,18 @@ const BeAVolunteer = () => {
 
 
               <div className="form-control mt-2">
-                <button className="btn bg-blue-500 rounded-lg text-white">Request</button>
+                <button
+                  className={`btn rounded-lg text-white ${noNeedVolunteer === 0 ? "bg-gray-400 cursor-not-allowed" : "bg-blue-500"
+                    }`}
+                  disabled={noNeedVolunteer === 0}
+                >
+                  Request
+                </button>
+                {noNeedVolunteer === 0 && (
+                  <p className="text-red-500 font-bold text-lg text-center mt-2">
+                    No more volunteers are needed at this time.
+                  </p>
+                )}
               </div>
 
             </form>

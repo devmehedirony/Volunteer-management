@@ -118,7 +118,7 @@ const ManageMyPost = () => {
                       <p>volunteersNeeded: <span className='font-bold text-blue-500'>{post.volunteersNeeded}</span></p>
                     </td>
                     <td className=' hidden md:block'>
-                      <div className='flex flex-col items-center'>
+                      <div className='flex items-center'>
                         {post.Category}
 
                         <span className="badge badge-ghost badge-sm">{post.deadline}</span>
