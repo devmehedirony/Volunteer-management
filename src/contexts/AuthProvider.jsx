@@ -8,7 +8,9 @@ import {
   updateProfile,
 } from 'firebase/auth';
 import { createContext, useEffect, useState } from 'react';
-import auth from '../firebase/firevase.init';
+import { getAuth } from "firebase/auth";
+import axios from 'axios';
+import app from './../firebase/firevase.init';
 
 
 
@@ -17,10 +19,9 @@ export const authContext = createContext();
 const AuthProvider = ({ children }) => {
  
   const provider = new GoogleAuthProvider();
-
   const [user, setUser] = useState(null);
-  
   const [loading, setLoading] = useState(true);
+  const auth = getAuth(app)
 
 
 
@@ -28,7 +29,28 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubcribe = onAuthStateChanged(auth, currentUser => {
       setUser(currentUser);
-      setLoading(false);
+
+      if (currentUser?.email) {
+        const user = { email: currentUser.email }
+        axios.post('http://localhost:5000/jwt', user, {
+          withCredentials: true
+        })
+          .then(res => {
+            console.log('signIn', res.data)
+            setLoading(false)
+          })
+      }
+      else {
+
+        axios.post('http://localhost:5000/signOut', {}, {
+          withCredentials: true
+        })
+          .then(res => {
+            console.log('signOut', res.data);
+            setLoading(false)
+          })
+      }
+
     });
 
     return () => {

@@ -2,7 +2,7 @@ import  { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
 import axios from 'axios';
 import useAuth from '../hooks/useAuth';
-import { MdCancel, MdDeleteSweep, MdOutlineEdit } from 'react-icons/md';
+import { MdCancel, MdDeleteSweep } from 'react-icons/md';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
@@ -12,14 +12,17 @@ const ManageMyPost = () => {
   const { user } = useAuth()
   const [myPosts, setPosts] = useState([])
   const [requested, setRequseted] = useState([])
-  
-  
+
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/need-volunteer-posts?email=${user.email}`)
+    axios.get(`http://localhost:5000/need-volunteer-my-post?email=${user.email}`, {
+      withCredentials: true
+    })
       .then(res => setPosts(res.data))
     
-    axios.get(`http://localhost:5000/be-a-volunteer?email=${user.email}`)
+    axios.get(`http://localhost:5000/be-a-volunteer?email=${user.email}`, {
+      withCredentials: true
+    })
     .then(res=> setRequseted(res.data))
   }, [user.email])
 
