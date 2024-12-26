@@ -11,6 +11,7 @@ import NeedVolunteerDetails from "../pages/NeedVolunteerDetails";
 import BeAVolunteer from "../pages/BeAVolunteer";
 import ManageMyPost from "../pages/ManageMyPost";
 import UpdateVolNeedPosts from "../pages/UpdateVolNeedPosts";
+import Error from "../pages/Error";
 
 
 
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
   {
     path: 'volunteer/login',
     element: <Login/>
+  },
+  {
+    path: '*',
+    element: <Error />,
   },
  
  
