@@ -27,6 +27,7 @@ const NavBar = () => {
   const signOut = () => {
     signOutUser()
       .then(res => {
+        toast.success('Login Out SuccessFull')
         navigate('/volunteer/login')
       })
       .catch(err => {

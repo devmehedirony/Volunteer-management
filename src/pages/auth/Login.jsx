@@ -27,8 +27,10 @@ const Login = () => {
 
     signInUser(email, password)
       .then(res => {
-
-        navigate(location?.state ? location?.state : '/');
+        toast.success('SuccessFully Login')
+        setTimeout(() => {
+          navigate(location?.state ? location?.state : '/');
+        }, 1000)
 
       })
       .catch(err => {
@@ -41,7 +43,11 @@ const Login = () => {
   const handleLoginWithGoogle = () => {
     signINWithGoogle()
       .then(res => {
-        navigate(location?.state ? location?.state : '/');
+        toast.success('SuccessFully Login')
+        setTimeout(() => {
+          navigate(location?.state ? location?.state : '/');
+        }, 1000)
+        
       })
       .catch(err => {
         toast.error('Please SignUP With Valid Information');

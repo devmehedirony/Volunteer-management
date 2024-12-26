@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import AscendingOrder from "../components/AscendingOrder";
+import Contact from "../components/Contract";
+import Featured from "../components/Featured";
 
 
 const Home = () => {
@@ -17,6 +19,13 @@ const Home = () => {
           ascending.map(card=> <AscendingOrder key={card._id} card={card}></AscendingOrder>)
         }
       </div>
+
+      <section>
+        <Contact/>
+      </section>
+      <section>
+        <Featured/>
+      </section>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import Hero from "../components/Hero";
 import { Helmet } from "react-helmet";
+import Footer from "../components/Footer";
 
 
 const HomeLayout = () => {
@@ -20,7 +21,7 @@ const HomeLayout = () => {
         <Outlet/>
       </main>
       <footer>
-        
+        <Footer/>
       </footer>
     </div>
   );

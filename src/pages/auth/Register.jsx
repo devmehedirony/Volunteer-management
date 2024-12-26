@@ -43,8 +43,10 @@ const Register = () => {
 
     createUser(email, password)
       .then(res => {
-
-        navigate(location?.state ? location?.state : '/');
+        toast.success('Account Create SuccessFull')
+        setTimeout(() => {
+          navigate(location?.state ? location?.state : '/');
+        }, 1000)
         updateUserProfile({ displayName: name, photoURL: photo });
       })
       .catch(err => {
@@ -57,7 +59,10 @@ const Register = () => {
   const handleSignUpWithGoogle = () => {
     signINWithGoogle()
       .then(res => {
-        navigate(location?.state ? location?.state : '/');
+        toast.success('Account Create SuccessFull')
+        setTimeout(() => {
+          navigate(location?.state ? location?.state : '/');
+        }, 1000)
       }).catch(err => {
         toast.error('Please SignUP With Valid Information')
       })
