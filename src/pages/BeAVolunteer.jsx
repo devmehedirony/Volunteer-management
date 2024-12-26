@@ -20,12 +20,12 @@ const BeAVolunteer = () => {
     const initialData = Object.fromEntries(formData.entries())
     const { volunteersNeeded, ...data } = initialData
     data.volunteersNeeded = parseInt(volunteersNeeded)
-    
-    
 
 
 
-    axios.post('http://localhost:5000/be-a-volunteer', data)
+
+
+    axios.post('https://volunteer-management-server-sage.vercel.app/be-a-volunteer', data)
       .then(res => {
         if (res.data.insertedId) {
           Swal.fire({
@@ -35,10 +35,10 @@ const BeAVolunteer = () => {
           });
         }
       })
-    
-    axios.patch(`http://localhost:5000/volunteers-needed/${_id}`)
-      .then(res => console.log(res.data))
-  
+
+    axios.patch(`https://volunteer-management-server-sage.vercel.app/volunteers-needed/${_id}`)
+
+
   }
 
 
@@ -49,7 +49,7 @@ const BeAVolunteer = () => {
         <title>Be a Volunteer</title>
       </Helmet>
       <header>
-        <NavBar/>
+        <NavBar />
       </header>
       <main>
         <div className=" flex justify-center items-center">
@@ -108,7 +108,7 @@ const BeAVolunteer = () => {
                   <label className="label">
                     <span className="label-text ">Category</span>
                   </label>
-                  <select  defaultValue={Category} name="Category" className="select md:w-[215px] w-72 border-2 border-[#F3F3F3] rounded-2xl">
+                  <select defaultValue={Category} name="Category" className="select md:w-[215px] w-72 border-2 border-[#F3F3F3] rounded-2xl">
                     <option>{Category}</option>
                   </select>
 
@@ -176,7 +176,7 @@ const BeAVolunteer = () => {
                     type="text"
                     defaultValue={OrganizerName} readOnly
                     className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
-                    
+
 
                   />
 

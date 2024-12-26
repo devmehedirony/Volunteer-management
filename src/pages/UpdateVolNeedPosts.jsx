@@ -13,7 +13,7 @@ const UpdateVolNeedPosts = () => {
   const [startDate, setStartDate] = useState(new Date());
   const needPost = useLoaderData()
   const { _id, thumbnail, PostTitle, description, Category, Location, OrganizerName, organizerEmail, volunteersNeeded, deadline } = needPost
-  console.log(needPost);
+
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -26,9 +26,9 @@ const UpdateVolNeedPosts = () => {
 
 
 
-    axios.put(`http://localhost:5000/need-volunteer-posts/${_id}`, data)
+    axios.put(`https://volunteer-management-server-sage.vercel.app/need-volunteer-posts/${_id}`, data)
       .then(res => {
-        console.log(res.data);
+
         if (res.data.modifiedCount) {
           Swal.fire({
             title: "Need Vol Post Update",
@@ -154,10 +154,10 @@ const UpdateVolNeedPosts = () => {
                 <label className="label">
                   <span className="label-text ">Deadline</span>
                 </label>
-                <DatePicker className=" border-blue-600 border-2 px-4 rounded-xl py-3 w-full md:w-[430px]"      selected={deadline}
+                <DatePicker className=" border-blue-600 border-2 px-4 rounded-xl py-3 w-full md:w-[430px]" selected={deadline}
                   dateFormat="yyyy/MM/dd"
                   onChange={(date) => setStartDate(date)}
-                  
+
 
                 />
               </div>

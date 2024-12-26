@@ -3,7 +3,7 @@ import { MdMarkEmailRead, MdSubject } from "react-icons/md";
 
 const Contact = () => {
   return (
-    <section className="bg-gray-100 py-10">
+    <section className=" py-10">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-6">
           Contact <span className="text-blue-500">us</span>
@@ -18,8 +18,8 @@ const Contact = () => {
 
         <form className="grid grid-cols-1 md:grid-cols-3 gap-4">
          
-          <div className="flex items-center border rounded-lg p-3 bg-white">
-            <span className=" text-gray-500 mr-3"><FcManager /></span>
+          <div className="flex items-center border rounded-lg p-3 ">
+            <span className=" mr-3"><FcManager /></span>
             <input
               type="text"
               placeholder="Your Name"
@@ -28,8 +28,8 @@ const Contact = () => {
           </div>
 
           
-          <div className="flex items-center border rounded-lg p-3 bg-white">
-            <span className=" text-gray-500 mr-3"><MdMarkEmailRead /></span>
+          <div className="flex items-center border rounded-lg p-3 ">
+            <span className="  mr-3"><MdMarkEmailRead /></span>
             <input
               type="email"
               placeholder="Email"
@@ -38,8 +38,8 @@ const Contact = () => {
           </div>
 
          
-          <div className="flex items-center border rounded-lg p-3 bg-white">
-            <span className=" text-gray-500 mr-3"><MdSubject /></span>
+          <div className="flex items-center border rounded-lg p-3 ">
+            <span className="  mr-3"><MdSubject /></span>
             <input
               type="text"
               placeholder="Subject"
@@ -52,7 +52,7 @@ const Contact = () => {
             <textarea
               placeholder="Your Message"
               rows="5"
-              className="w-full border rounded-lg p-3 bg-white outline-none "
+              className="w-full border rounded-lg p-3  outline-none "
             ></textarea>
           </div>
 

@@ -33,12 +33,12 @@ const router = createBrowserRouter([
   {
     path: 'all-volunteer-need-posts/details/:id',
     element: <PrivateRoutes><NeedVolunteerDetails /></PrivateRoutes>,
-    loader: ({ params }) => fetch(`http://localhost:5000/need-volunteer-posts/${params.id}`)
+    loader: ({ params }) => fetch(`https://volunteer-management-server-sage.vercel.app/need-volunteer-posts/${params.id}`)
   },
   {
     path: 'be-a-volunteer/:id',
     element: <PrivateRoutes><BeAVolunteer /></PrivateRoutes>,
-    loader: ({ params }) => fetch(`http://localhost:5000/need-volunteer-posts/${params.id}`)
+    loader: ({ params }) => fetch(`https://volunteer-management-server-sage.vercel.app/need-volunteer-posts/${params.id}`)
   },
   {
     path: 'add-volunteer-need-posts',
@@ -46,28 +46,28 @@ const router = createBrowserRouter([
   },
   {
     path: 'manage-my-posts',
-    element: <PrivateRoutes><ManageMyPost/></PrivateRoutes>
+    element: <PrivateRoutes><ManageMyPost /></PrivateRoutes>
   },
   {
     path: 'update-need-volunteers-posts/:id',
     element: <PrivateRoutes><UpdateVolNeedPosts /></PrivateRoutes>,
-    loader: ({ params }) => fetch(`http://localhost:5000/need-volunteer-posts/${params.id}`)
+    loader: ({ params }) => fetch(`https://volunteer-management-server-sage.vercel.app/need-volunteer-posts/${params.id}`)
   },
 
   {
     path: 'volunteer/register',
-    element: <Register/>
+    element: <Register />
   },
   {
     path: 'volunteer/login',
-    element: <Login/>
+    element: <Login />
   },
   {
     path: '*',
     element: <Error />,
   },
- 
- 
+
+
 ]);
 
 

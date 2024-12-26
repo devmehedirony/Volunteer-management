@@ -1,4 +1,4 @@
-import  { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
 import axios from 'axios';
 import useAuth from '../hooks/useAuth';
@@ -15,15 +15,15 @@ const ManageMyPost = () => {
 
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/need-volunteer-my-post?email=${user.email}`, {
+    axios.get(`https://volunteer-management-server-sage.vercel.app/need-volunteer-my-post?email=${user.email}`, {
       withCredentials: true
     })
       .then(res => setPosts(res.data))
-    
-    axios.get(`http://localhost:5000/be-a-volunteer?email=${user.email}`, {
+
+    axios.get(`https://volunteer-management-server-sage.vercel.app/be-a-volunteer?email=${user.email}`, {
       withCredentials: true
     })
-    .then(res=> setRequseted(res.data))
+      .then(res => setRequseted(res.data))
   }, [user.email])
 
   const handleRequestDelete = id => {
@@ -37,7 +37,7 @@ const ManageMyPost = () => {
       confirmButtonText: "Yes, Cancel Request"
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/be-a-volunteer/${id}`)
+        axios.delete(`https://volunteer-management-server-sage.vercel.app/be-a-volunteer/${id}`)
           .then(res => {
             if (res.data.deletedCount) {
               Swal.fire({
@@ -45,7 +45,7 @@ const ManageMyPost = () => {
                 text: "Your file has been deleted.",
                 icon: "success"
               });
-              const remainingRequest = requested.filter(request=> request._id !== id)
+              const remainingRequest = requested.filter(request => request._id !== id)
               setRequseted(remainingRequest)
             }
           })
@@ -64,7 +64,7 @@ const ManageMyPost = () => {
       confirmButtonText: "Yes, Delete It"
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/need-volunteer-posts/${id}`)
+        axios.delete(`https://volunteer-management-server-sage.vercel.app/need-volunteer-posts/${id}`)
           .then(res => {
             if (res.data.deletedCount) {
               Swal.fire({
@@ -85,17 +85,17 @@ const ManageMyPost = () => {
         <title>Manage My Profile</title>
       </Helmet>
       <header>
-        <NavBar/>
+        <NavBar />
       </header>
       <main>
         <div>
           <h2 className='md:text-3xl text-lg font-bold bg-blue-500 text-white md:px-10 px-4 py-2 md:w-6/12 w-11/12 mx-auto text-center  mt-6 md:mb-10 mb-2 '>My Volunteer Needed Post</h2>
           <div className="overflow-x-auto md:w-6/12 w-11/12 mx-auto">
             <table className="table ">
-              
-             
+
+
               <tbody>
-              
+
                 {
                   myPosts.length > 0 ? myPosts.map(post => <tr key={post._id}>
 
@@ -120,7 +120,7 @@ const ManageMyPost = () => {
                     <td className=' hidden md:block'>
                       <div className='flex flex-col items-center'>
                         {post.Category}
-  
+
                         <span className="badge badge-ghost badge-sm">{post.deadline}</span>
                       </div>
                     </td>
@@ -134,11 +134,11 @@ const ManageMyPost = () => {
                     </th>
                   </tr>) : <div className="text-center py-8">
                     <p className="text-2xl font-bold text-gray-600">You have no volunteer Need Posts</p>
-                  </div> 
+                  </div>
                 }
-                
+
               </tbody>
-             
+
             </table>
           </div>
         </div>
@@ -151,9 +151,9 @@ const ManageMyPost = () => {
 
               <tbody>
                 {/* row 1 */}
-               
+
                 {
-                  
+
                   requested.length > 0 ? requested.map(requestVol => <tr key={requestVol._id}>
 
                     <td>
@@ -173,21 +173,21 @@ const ManageMyPost = () => {
                     </td>
 
                     <td className='flex flex-col items-center '>
-                     <div className='hidden md:block'>
+                      <div className='hidden md:block'>
                         {requestVol.Category}
-  
+
                         <span className="badge badge-ghost badge-sm">{requestVol.deadline}</span>
-                     </div>
+                      </div>
                     </td>
 
 
                     <th >
-                        <button onClick={() => handleRequestDelete(requestVol._id)} className="btn btn-ghost tooltip tooltip-left text-3xl " data-tip="Cancel Request"><MdCancel /></button>
+                      <button onClick={() => handleRequestDelete(requestVol._id)} className="btn btn-ghost tooltip tooltip-left text-3xl " data-tip="Cancel Request"><MdCancel /></button>
                     </th>
                   </tr>) : <div className="text-center py-8">
-                      <p className="text-lg text-gray-600">You have no volunteer requests.</p>
-                      <p className="text-gray-500">Add a new request from the “Be a Volunteer” page</p>
-                  </div> 
+                    <p className="text-lg text-gray-600">You have no volunteer requests.</p>
+                    <p className="text-gray-500">Add a new request from the “Be a Volunteer” page</p>
+                  </div>
                 }
 
               </tbody>

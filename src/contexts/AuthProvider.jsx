@@ -17,7 +17,7 @@ import app from './../firebase/firevase.init';
 export const authContext = createContext();
 
 const AuthProvider = ({ children }) => {
- 
+
   const provider = new GoogleAuthProvider();
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -32,21 +32,21 @@ const AuthProvider = ({ children }) => {
 
       if (currentUser?.email) {
         const user = { email: currentUser.email }
-        axios.post('http://localhost:5000/jwt', user, {
+        axios.post('https://volunteer-management-server-sage.vercel.app/jwt', user, {
           withCredentials: true
         })
           .then(res => {
-            console.log('signIn', res.data)
+
             setLoading(false)
           })
       }
       else {
 
-        axios.post('http://localhost:5000/signOut', {}, {
+        axios.post('https://volunteer-management-server-sage.vercel.app/signOut', {}, {
           withCredentials: true
         })
           .then(res => {
-            console.log('signOut', res.data);
+
             setLoading(false)
           })
       }

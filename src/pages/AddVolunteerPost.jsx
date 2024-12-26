@@ -10,7 +10,7 @@ import { Helmet } from "react-helmet";
 const AddVolunteerPost = () => {
   const { user } = useAuth()
   const [startDate, setStartDate] = useState(new Date());
-  
+
   const handleSubmit = e => {
     e.preventDefault()
     const formData = new FormData(e.target)
@@ -19,10 +19,10 @@ const AddVolunteerPost = () => {
     data.volunteersNeeded = parseInt(volunteersNeeded)
     const deadline = startDate.toISOString().split('T')[0]
     data.deadline = deadline
-    
-    
 
-    axios.post('http://localhost:5000/need-volunteer-posts', data)
+
+
+    axios.post('https://volunteer-management-server-sage.vercel.app/need-volunteer-posts', data)
       .then(res => {
         if (res.data.insertedId) {
           Swal.fire({
@@ -31,66 +31,66 @@ const AddVolunteerPost = () => {
             icon: "success"
           });
         }
-    })
+      })
   }
   return (
     <div >
       <Helmet>
         <title>Add Volunteer need post</title>
       </Helmet>
-        <header>
-          <NavBar />
-        </header>
+      <header>
+        <NavBar />
+      </header>
 
 
 
-        <main>
-          <div className=" flex justify-center items-center">
+      <main>
+        <div className=" flex justify-center items-center">
 
-            <div className="card bg-base-100  shrink-0 md:p-10 p-0 rounded-2xl">
+          <div className="card bg-base-100  shrink-0 md:p-10 p-0 rounded-2xl">
             <h2 className="text-3xl font-bold text-center mt-4 md:mt-0">volunteer need Post</h2>
-              <form onSubmit={handleSubmit} className="card-body  space-y-2">
+            <form onSubmit={handleSubmit} className="card-body  space-y-2">
 
-                <div className="flex flex-col md:flex-row items-center gap-4">
+              <div className="flex flex-col md:flex-row items-center gap-4">
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text ">Thumbnail</span>
                   </label>
-                    <input
-                      type="text"
+                  <input
+                    type="text"
                     name="thumbnail"
                     placeholder="thumbnail"
-                      className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full "
-                      required
-                    />
+                    className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full "
+                    required
+                  />
 
-                  </div>
+                </div>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text ">Post Title</span>
                   </label>
-                    <input
-                      type="text"
+                  <input
+                    type="text"
                     name="PostTitle"
                     placeholder="PostTitle"
-                      className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
-                      required
-                    />
-                  </div>
+                    className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
+                    required
+                  />
                 </div>
-                <div className="flex flex-col md:flex-row items-center gap-4">
-                  <div className="form-control">
+              </div>
+              <div className="flex flex-col md:flex-row items-center gap-4">
+                <div className="form-control">
                   <label className="label">
                     <span className="label-text ">Description</span>
                   </label>
-                    <input
-                      type="text"
-                      name="description"
+                  <input
+                    type="text"
+                    name="description"
                     placeholder="description"
-                      className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
-                      required
-                    />
-                  </div>
+                    className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
+                    required
+                  />
+                </div>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text ">Category</span>
@@ -106,23 +106,23 @@ const AddVolunteerPost = () => {
 
                 </div>
 
-                </div>
-                <div className="flex flex-col md:flex-row items-center gap-4">
+              </div>
+              <div className="flex flex-col md:flex-row items-center gap-4">
 
-                  <div className="form-control">
+                <div className="form-control">
                   <label className="label">
                     <span className="label-text ">Location</span>
                   </label>
-                    <input
-                      type="text"
-                      name="Location"
+                  <input
+                    type="text"
+                    name="Location"
                     placeholder="Location"
-                      className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
-                      required
-                    />
+                    className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
+                    required
+                  />
 
 
-                  </div>
+                </div>
 
                 <div className="form-control">
                   <label className="label">
@@ -145,12 +145,12 @@ const AddVolunteerPost = () => {
                   <span className="label-text ">Deadline</span>
                 </label>
                 <DatePicker className=" border-blue-600 border-2 px-4 rounded-xl py-3 w-full  md:w-[430px]" selected={startDate}
-                  dateFormat="yyyy/MM/dd" 
+                  dateFormat="yyyy/MM/dd"
                   onChange={(date) => setStartDate(date)}
-                 
+
                 />
               </div>
-                <div className="flex flex-col md:flex-row items-center gap-4">
+              <div className="flex flex-col md:flex-row items-center gap-4">
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text ">Organizer Name</span>
@@ -160,41 +160,41 @@ const AddVolunteerPost = () => {
                     type="text"
                     defaultValue={user?.displayName} readOnly
                     className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
-                    
+
                   />
 
 
                 </div>
 
-                  <div className="form-control">
+                <div className="form-control">
                   <label className="label">
                     <span className="label-text ">Organizer Email</span>
                   </label>
-                    <input
+                  <input
                     type="email"
                     name="organizerEmail"
-                      defaultValue={user?.email} readOnly
-                      className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
-                      
-                    />
+                    defaultValue={user?.email} readOnly
+                    className="input border-2 border-[#F3F3F3] rounded-2xl w-72 md:w-full"
+
+                  />
 
 
-                  </div>
                 </div>
+              </div>
 
 
 
-                <div className="form-control mt-2">
-                  <button className="btn bg-blue-500 rounded-lg text-white">Submit</button>
-                </div>
-              </form>
+              <div className="form-control mt-2">
+                <button className="btn bg-blue-500 rounded-lg text-white">Submit</button>
+              </div>
+            </form>
 
-            </div>
           </div>
+        </div>
 
-        </main>
+      </main>
 
-   
+
       <footer>
       </footer>
     </div>
