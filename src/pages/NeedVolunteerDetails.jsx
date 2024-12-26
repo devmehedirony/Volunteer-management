@@ -4,6 +4,7 @@ import { MdCategory, MdManageAccounts, MdMarkEmailRead } from "react-icons/md";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { SiNamebase } from "react-icons/si";
 import { Helmet } from "react-helmet";
+import Footer from "../components/Footer";
 
 
 const NeedVolunteerDetails = () => {
@@ -17,7 +18,7 @@ const NeedVolunteerDetails = () => {
       <header>
         <NavBar/>
       </header>
-      <main>
+      <main className="mb-8">
         <div className="hero">
           <div className="hero-content px-2 flex-col lg:flex-row">
             <img
@@ -43,6 +44,9 @@ const NeedVolunteerDetails = () => {
           </div>
         </div>
       </main>
+      <footer>
+        <Footer/>
+      </footer>
     </div>
   );
 };

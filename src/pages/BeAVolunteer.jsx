@@ -6,6 +6,7 @@ import DatePicker from "react-datepicker";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
+import Footer from "../components/Footer";
 
 
 const BeAVolunteer = () => {
@@ -288,7 +289,7 @@ const BeAVolunteer = () => {
       </main>
 
       <footer>
-
+<Footer/>
       </footer>
     </div>
   );

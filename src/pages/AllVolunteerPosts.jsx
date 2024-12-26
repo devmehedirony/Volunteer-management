@@ -3,6 +3,7 @@ import VolunteerCard from "../components/VolunteerCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Helmet } from "react-helmet";
+import Footer from "../components/Footer";
 
 
 const AllVolunteerPosts = () => {
@@ -31,6 +32,9 @@ const AllVolunteerPosts = () => {
           data.map(post => <VolunteerCard key={post._id} post={post}></VolunteerCard>)
         }
       </main>
+      <footer>
+        <Footer/>
+      </footer>
     </div>
   );
 };

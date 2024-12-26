@@ -6,6 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
+import Footer from "../components/Footer";
 
 const AddVolunteerPost = () => {
   const { user } = useAuth()
@@ -196,6 +197,7 @@ const AddVolunteerPost = () => {
 
 
       <footer>
+        <Footer/>
       </footer>
     </div>
   );

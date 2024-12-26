@@ -7,6 +7,7 @@ import { useLoaderData } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import NavBar from "../components/NavBar";
 import { Helmet } from "react-helmet";
+import Footer from "../components/Footer";
 
 const UpdateVolNeedPosts = () => {
   const { user } = useAuth()
@@ -207,6 +208,7 @@ const UpdateVolNeedPosts = () => {
 
 
       <footer>
+        <Footer/>
       </footer>
     </div>
   );

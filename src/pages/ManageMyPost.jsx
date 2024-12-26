@@ -6,6 +6,7 @@ import { MdCancel, MdDeleteSweep } from 'react-icons/md';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import Footer from '../components/Footer';
 
 
 const ManageMyPost = () => {
@@ -197,7 +198,9 @@ const ManageMyPost = () => {
         </div>
 
       </main>
-      <footer></footer>
+      <footer>
+        <Footer/>
+      </footer>
     </div>
   );
 };
