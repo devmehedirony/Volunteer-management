@@ -3,6 +3,7 @@ import NavBar from "../components/NavBar";
 import { MdCategory, MdManageAccounts, MdMarkEmailRead } from "react-icons/md";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { SiNamebase } from "react-icons/si";
+import { Helmet } from "react-helmet";
 
 
 const NeedVolunteerDetails = () => {
@@ -10,6 +11,9 @@ const NeedVolunteerDetails = () => {
   const { _id, thumbnail, PostTitle, description, Category, Location, OrganizerName, organizerEmail, volunteersNeeded, deadline } = volunteerPostDetails
   return (
     <div>
+      <Helmet>
+        <title>Details Volunteer</title>
+      </Helmet>
       <header>
         <NavBar/>
       </header>

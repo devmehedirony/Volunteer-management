@@ -5,6 +5,7 @@ import axios from "axios";
 import DatePicker from "react-datepicker";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 
 const BeAVolunteer = () => {
@@ -44,6 +45,9 @@ const BeAVolunteer = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Be a Volunteer</title>
+      </Helmet>
       <header>
         <NavBar/>
       </header>

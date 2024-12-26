@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import HomeLayout from "../Layouts/HomeLayout";
-import MyProfile from "../pages/MyProfile";
 import Home from "../pages/Home";
 import Register from "../pages/auth/Register";
 import Login from "../pages/auth/Login";
@@ -54,10 +53,7 @@ const router = createBrowserRouter([
     element: <PrivateRoutes><UpdateVolNeedPosts /></PrivateRoutes>,
     loader: ({ params }) => fetch(`http://localhost:5000/need-volunteer-posts/${params.id}`)
   },
-  {
-    path: 'my-profile',
-    element: <PrivateRoutes><MyProfile /></PrivateRoutes>,
-  },
+
   {
     path: 'volunteer/register',
     element: <Register/>

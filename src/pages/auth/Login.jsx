@@ -5,6 +5,7 @@ import useAuth from '../../hooks/useAuth';
 import NavBar from '../../components/NavBar';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { useState } from 'react';
+import { Helmet } from 'react-helmet';
 
 
 
@@ -48,7 +49,10 @@ const Login = () => {
   };
 
   return (
-   <div>
+    <div>
+      <Helmet>
+        <title>Login</title>
+      </Helmet>
       <header>
         <NavBar />
       </header>

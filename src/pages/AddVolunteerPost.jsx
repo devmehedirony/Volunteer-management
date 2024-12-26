@@ -5,6 +5,7 @@ import { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const AddVolunteerPost = () => {
   const { user } = useAuth()
@@ -34,6 +35,9 @@ const AddVolunteerPost = () => {
   }
   return (
     <div >
+      <Helmet>
+        <title>Add Volunteer need post</title>
+      </Helmet>
         <header>
           <NavBar />
         </header>

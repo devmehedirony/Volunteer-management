@@ -7,6 +7,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import useAuth from '../../hooks/useAuth';
 import NavBar from '../../components/NavBar';
+import { Helmet } from 'react-helmet';
 
 
 const Register = () => {
@@ -63,7 +64,10 @@ const Register = () => {
   }
 
   return (
-   <div>
+    <div>
+      <Helmet>
+        <title>Register</title>
+      </Helmet>
       <header>
         <NavBar/>
     </header>

@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { useLoaderData } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import NavBar from "../components/NavBar";
+import { Helmet } from "react-helmet";
 
 const UpdateVolNeedPosts = () => {
   const { user } = useAuth()
@@ -39,6 +40,9 @@ console.log(data);
   }
   return (
     <div >
+      <Helmet>
+        <title>Update My Post</title>
+      </Helmet>
       <header>
         <NavBar />
       </header>

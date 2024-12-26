@@ -5,6 +5,7 @@ import useAuth from '../hooks/useAuth';
 import { MdCancel, MdDeleteSweep, MdOutlineEdit } from 'react-icons/md';
 import Swal from 'sweetalert2';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 
 const ManageMyPost = () => {
@@ -77,6 +78,9 @@ const ManageMyPost = () => {
   }
   return (
     <div>
+      <Helmet>
+        <title>Manage My Profile</title>
+      </Helmet>
       <header>
         <NavBar/>
       </header>

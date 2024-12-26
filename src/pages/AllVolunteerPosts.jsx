@@ -2,6 +2,7 @@ import NavBar from "../components/NavBar";
 import VolunteerCard from "../components/VolunteerCard";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 
 
 const AllVolunteerPosts = () => {
@@ -16,6 +17,9 @@ const AllVolunteerPosts = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Need VolunteerPost</title>
+      </Helmet>
       <header>
         <NavBar/>
       </header>
