@@ -2,11 +2,27 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from '../assets/logo.png';
 import useAuth from "../hooks/useAuth";
 import toast from "react-hot-toast";
+import { useEffect, useState } from "react";
 
 
 const NavBar = () => {
   const { user, signOutUser } = useAuth()
   const navigate = useNavigate()
+  const [theme, setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem('theme') : 'light')
+  
+  const handleToogle = e => {
+    if (e.target.checked) {
+      setTheme('dark')
+    } else {
+      setTheme('light')
+    }
+  }
+
+  useEffect(() => {
+    localStorage.setItem('theme', theme)
+    const localTheme = localStorage.getItem('theme')
+    document.querySelector('html').setAttribute('data-theme',localTheme)
+  },[theme])
 
   const signOut = () => {
     signOutUser()
@@ -97,7 +113,7 @@ const NavBar = () => {
               </div>
               <div className="mr-8">
                 <details className="dropdown">
-                  <summary className="btn hover:bg-transparent   bg-white py-0 text-blue-500 font-semibold px-0 border-none">My Profile</summary>
+                  <summary className="btn hover:bg-transparent   bg-transparent py-0 text-blue-500 font-semibold px-0 border-none">My Profile</summary>
                   <ul className="menu dropdown-content  rounded-box z-[1] w-52 p-2 shadow">
                     <li className="bg-blue-500 text-white mb-2"><Link to='/add-volunteer-need-posts'>Add Volunteer need Post</Link></li>
                     <li className="bg-blue-500 text-white"><Link to='/manage-my-posts'>Manage My Posts</Link></li>
@@ -106,7 +122,7 @@ const NavBar = () => {
               </div>
               <div>
                 <button
-                  className=" border bg-blue-500 border-white text-white  px-6 py-2 rounded-xl mr-4 text-sm hover:bg-transparent  hover:text-black hover:border-[#2f3941] transition-all duration-1000 ease-out "
+                  className="  bg-blue-500 border-white text-white  px-6 py-2 rounded-xl mr-4 text-sm hover:bg-transparent  hover:text-blue-500 hover:border-[#2f3941] transition-all duration-1000 ease-out "
                   onClick={signOut}
                 >
                   SignOut
@@ -130,7 +146,11 @@ const NavBar = () => {
                 </Link>
               </>
          }
-           
+          <div className="form-control ">
+            <label className="label cursor-pointer">
+              <input type="checkbox" onChange={handleToogle} className="toggle toggle-primary" defaultChecked />
+            </label>
+          </div>
         
         </div>
       </div>

@@ -8,7 +8,7 @@ const HomeLayout = () => {
 
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Helmet>
         <title>Home</title>
       </Helmet>

@@ -23,7 +23,7 @@ const UpdateVolNeedPosts = () => {
     data.volunteersNeeded = parseInt(volunteersNeeded)
     const deadline = startDate.toISOString().split('T')[0]
     data.deadline = deadline
-console.log(data);
+
 
 
     axios.put(`http://localhost:5000/need-volunteer-posts/${_id}`, data)
