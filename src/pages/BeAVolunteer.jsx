@@ -13,7 +13,7 @@ const BeAVolunteer = () => {
   const detailsPageData = useLoaderData()
   const [startDate, setStartDate] = useState(new Date());
   const { user } = useAuth()
-  
+
   const { _id, thumbnail, PostTitle, description, Category, Location, OrganizerName, organizerEmail, volunteersNeeded, deadline } = detailsPageData
   const [noNeedVolunteer, setVolunteer] = useState(volunteersNeeded)
 
@@ -28,7 +28,7 @@ const BeAVolunteer = () => {
 
 
 
-    axios.post('https://volunteer-management-server-sage.vercel.app/be-a-volunteer', data)
+    axios.post('https://volunteer-management-server-liart.vercel.app/be-a-volunteer', data)
       .then(res => {
         if (res.data.insertedId) {
           Swal.fire({
@@ -39,7 +39,7 @@ const BeAVolunteer = () => {
         }
       })
 
-    axios.patch(`https://volunteer-management-server-sage.vercel.app/volunteers-needed/${_id}`)
+    axios.patch(`https://volunteer-management-server-liart.vercel.app/volunteers-needed/${_id}`)
 
 
   }
@@ -289,7 +289,7 @@ const BeAVolunteer = () => {
       </main>
 
       <footer>
-<Footer/>
+        <Footer />
       </footer>
     </div>
   );

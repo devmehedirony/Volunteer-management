@@ -23,7 +23,7 @@ const AddVolunteerPost = () => {
 
 
 
-    axios.post('https://volunteer-management-server-sage.vercel.app/need-volunteer-posts', data)
+    axios.post('https://volunteer-management-server-liart.vercel.app/need-volunteer-posts', data)
       .then(res => {
         if (res.data.insertedId) {
           Swal.fire({
@@ -197,7 +197,7 @@ const AddVolunteerPost = () => {
 
 
       <footer>
-        <Footer/>
+        <Footer />
       </footer>
     </div>
   );

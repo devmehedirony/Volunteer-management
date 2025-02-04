@@ -27,7 +27,7 @@ const UpdateVolNeedPosts = () => {
 
 
 
-    axios.put(`https://volunteer-management-server-sage.vercel.app/need-volunteer-posts/${_id}`, data)
+    axios.put(`https://volunteer-management-server-liart.vercel.app/need-volunteer-posts/${_id}`, data)
       .then(res => {
 
         if (res.data.modifiedCount) {
@@ -208,7 +208,7 @@ const UpdateVolNeedPosts = () => {
 
 
       <footer>
-        <Footer/>
+        <Footer />
       </footer>
     </div>
   );

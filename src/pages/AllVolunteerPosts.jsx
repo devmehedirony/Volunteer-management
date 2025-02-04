@@ -12,7 +12,7 @@ const AllVolunteerPosts = () => {
   const [search, setSearch] = useState('')
 
   useEffect(() => {
-    axios.get(`https://volunteer-management-server-sage.vercel.app/need-volunteer-posts?search=${search}`)
+    axios.get(`https://volunteer-management-server-liart.vercel.app/need-volunteer-posts?search=${search}`)
       .then(res => setData(res.data))
   }, [search])
 
@@ -33,7 +33,7 @@ const AllVolunteerPosts = () => {
         }
       </main>
       <footer>
-        <Footer/>
+        <Footer />
       </footer>
     </div>
   );
