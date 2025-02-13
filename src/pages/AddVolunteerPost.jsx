@@ -23,7 +23,7 @@ const AddVolunteerPost = () => {
 
 
 
-    axios.post('http://localhost:5000/need-volunteer-posts', data)
+    axios.post('https://volunteer-management-server-beta.vercel.app/need-volunteer-posts', data)
       .then(res => {
         if (res.data.insertedId) {
           Swal.fire({

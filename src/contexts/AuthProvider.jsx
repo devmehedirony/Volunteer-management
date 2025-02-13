@@ -32,7 +32,7 @@ const AuthProvider = ({ children }) => {
 
       if (currentUser?.email) {
         const user = { email: currentUser.email }
-        axios.post('http://localhost:5000/jwt', user, {
+        axios.post('https://volunteer-management-server-beta.vercel.app/jwt', user, {
           withCredentials: true
         })
           .then(res => {
@@ -42,7 +42,7 @@ const AuthProvider = ({ children }) => {
       }
       else {
 
-        axios.post('http://localhost:5000/signOut', {}, {
+        axios.post('https://volunteer-management-server-beta.vercel.app/signOut', {}, {
           withCredentials: true
         })
           .then(res => {

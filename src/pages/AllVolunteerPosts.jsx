@@ -13,7 +13,7 @@ const AllVolunteerPosts = () => {
   const [sort, setSort] = useState()
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/need-volunteer-posts?search=${search}`)
+    axios.get(`https://volunteer-management-server-beta.vercel.app/need-volunteer-posts?search=${search}`)
       .then(res => setData(res.data))
   }, [search])
 
@@ -21,7 +21,7 @@ const AllVolunteerPosts = () => {
     setSort(sortType)
 
     if (sortType === 'volunteerNeeded') {
-      fetch('http://localhost:5000/need-volunteer-posts?volunteerNeeded=volunteersNeeded')
+      fetch('https://volunteer-management-server-beta.vercel.app/need-volunteer-posts?volunteerNeeded=volunteersNeeded')
         .then(res => res.json())
         .then(data => {
           setData(data)
@@ -29,7 +29,7 @@ const AllVolunteerPosts = () => {
     }
 
     if (sortType === 'Deadline') {
-      fetch('http://localhost:5000/need-volunteer-posts?Deadline=deadline"')
+      fetch('https://volunteer-management-server-beta.vercel.app/need-volunteer-posts?Deadline=deadline"')
         .then(res => res.json())
         .then(data => {
           setData(data)
