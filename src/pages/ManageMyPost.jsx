@@ -90,8 +90,8 @@ const ManageMyPost = () => {
       </header>
       <main>
         <div>
-          <h2 className='md:text-3xl text-lg font-bold bg-blue-500 text-white md:px-10 px-4 py-2 md:w-6/12 w-11/12 mx-auto text-center  mt-6 md:mb-10 mb-2 '>My Volunteer Needed Post</h2>
-          <div className="overflow-x-auto md:w-6/12 w-11/12 mx-auto">
+          <h2 className='xl:text-3xl text-lg font-bold bg-blue-500 text-white md:px-10 px-4 py-2 md:w-9/12 w-11/12 xl:w-6/12 mx-auto text-center  mt-6 md:mb-10 mb-2 '>My Volunteer Needed Post</h2>
+          <div className="overflow-x-auto xl:w-6/12 md:w-9/12 w-11/12 mx-auto">
             <table className="table ">
 
 
@@ -145,8 +145,8 @@ const ManageMyPost = () => {
         </div>
 
         <div className='mt-16  md:mt-32 mb-20'>
-          <h2 className='md:text-3xl text-lg font-bold bg-blue-500 text-white md:px-10 px-4 py-2 md:w-6/12 w-11/12 mx-auto text-center  mt-6 md:mb-10 mb-2 '>My Volunteer Request Post</h2>
-          <div className="overflow-x-auto md:w-6/12 w-11/12 mx-auto">
+          <h2 className='xl:text-3xl text-lg font-bold bg-blue-500 text-white md:px-10 px-4 py-2 md:w-9/12 w-11/12 xl:w-6/12 mx-auto text-center  mt-6 md:mb-10 mb-2 '>My Volunteer Request Post</h2>
+          <div className="overflow-x-auto xl:w-6/12 md:w-9/12 w-11/12 mx-auto">
             <table className="table">
 
 

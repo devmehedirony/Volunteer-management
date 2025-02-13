@@ -45,7 +45,7 @@ const AddVolunteerPost = () => {
 
 
 
-      <main className="min-h-[calc(100vh-390px)]">
+      <main className="min-h-[calc(100vh-360px)]">
         <div className=" flex justify-center items-center">
 
           <div className="card bg-base-100  shrink-0 md:p-10 p-0 rounded-2xl">

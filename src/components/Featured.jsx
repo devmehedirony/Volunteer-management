@@ -3,7 +3,7 @@ import featured  from '../assets/featured.jpg'
 const Featured = () => {
   return (
     <div className='md:px-24 px-4 my-20'>
-      <h2 className='font-bold text-3xl ml-4 md:ml-0  mb-5 md:text-center lg:mb-10'>Our featured project</h2>
+      <h2 className='font-bold text-3xl ml-4 md:ml-0 text-blue-600  mb-5 md:text-center lg:mb-14'>Our featured project</h2>
       <div className='flex flex-col xl:flex-row  justify-center gap-10  '>
         
         <div className='lg:w-6/12 w-11/12 mx-auto'>

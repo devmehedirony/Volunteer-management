@@ -40,7 +40,7 @@ const UpdateVolNeedPosts = () => {
       })
   }
   return (
-    <div >
+    <div className="mt-24">
       <Helmet>
         <title>Update My Post</title>
       </Helmet>
@@ -50,11 +50,11 @@ const UpdateVolNeedPosts = () => {
 
 
 
-      <main>
+      <main className="min-h-[calc(100vh-360px)]">
         <div className=" flex justify-center items-center">
 
           <div className="card bg-base-100  shrink-0 md:p-10 p-0 rounded-2xl">
-            <h2 className="text-3xl font-bold text-center mt-4 md:mt-0">volunteer need Post Update</h2>
+            <h2 className="md:text-3xl text-lg font-bold text-center mt-4 md:mt-0">volunteer need Post Update</h2>
             <form onSubmit={handleSubmit} className="card-body  space-y-2">
 
               <div className="flex flex-col md:flex-row items-center gap-4">
