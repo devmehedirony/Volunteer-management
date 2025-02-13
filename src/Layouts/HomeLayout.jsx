@@ -3,6 +3,7 @@ import NavBar from "../components/NavBar";
 import Hero from "../components/Hero";
 import { Helmet } from "react-helmet";
 import Footer from "../components/Footer";
+import OurVolunteers from "../components/OurVolunteers";
 
 
 const HomeLayout = () => {
@@ -16,9 +17,10 @@ const HomeLayout = () => {
       <header>
         <NavBar/>
       </header>
-      <main>
+      <main className="mt-16">
         <Hero/>
-        <Outlet/>
+        <Outlet />
+        <OurVolunteers></OurVolunteers>
       </main>
       <footer>
         <Footer/>

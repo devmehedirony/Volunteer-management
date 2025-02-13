@@ -41,7 +41,7 @@ const NavBar = () => {
             <NavLink
               className={({ isActive }) =>
                 isActive
-                  ? 'text-blue-600 text-base  font-medium'
+              ? 'bg-white  text-[#3B82F6] px-4 py-2 rounded-md text-base  font-medium'
                   : 'text-base'
               }
               to="/"
@@ -53,14 +53,71 @@ const NavBar = () => {
             <NavLink
               className={({ isActive }) =>
             isActive
-              ? 'text-blue-600 text-base   font-medium'
+              ? 'bg-white  text-[#3B82F6] px-4 py-2 rounded-md text-base   font-medium'
               : 'text-base'
               }
           to="/all-volunteer-need-posts"
             >
           All volunteer Need posts
             </NavLink>
+      </li>
+      
+      {
+        user ? <>
+          <li className="text-lg">
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? 'bg-white  text-[#3B82F6] px-4 py-2 rounded-md text-base   font-medium'
+                  : 'text-base'
+              }
+              to='/add-volunteer-need-posts'
+            >
+              Add Volunteer need Post
+            </NavLink>
           </li>
+
+          
+          <li className="text-lg">
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? 'bg-white  text-[#3B82F6] px-4 py-2 rounded-md text-base   font-medium'
+                  : 'text-base'
+              }
+              to='/manage-my-posts'
+            >
+              Manage My Posts
+            </NavLink>
+          </li>
+
+          <li className="text-lg">
+            <NavLink
+              className={({ isActive }) =>
+                isActive
+                  ? 'bg-white  text-[#3B82F6] px-4 py-2 rounded-md text-base   font-medium'
+                  : 'text-base'
+              }
+              to='my-profile'
+            >
+              MY Profile
+            </NavLink>
+          </li>
+
+        </> :
+          <li className="text-lg">
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? 'bg-white  text-[#3B82F6] px-4 py-2 rounded-md text-base   font-medium'
+                : 'text-base'
+            }
+            to='/about-this-site'
+          >
+            About This Site
+          </NavLink>
+        </li>
+      }
          
         
  
@@ -68,8 +125,8 @@ const NavBar = () => {
     </>
   );
   return (
-    <div >
-      <div className="navbar w-11/12 mx-auto my-2">
+    <div className="bg-[#3B82F6] fixed top-0 left-0 z-50 w-full">
+      <div className="navbar w-11/12 mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -94,11 +151,11 @@ const NavBar = () => {
           </div>
           <Link to='/' className="text-xl flex item-center gap-2">
             <img className="md:h-10 h-6" src={logo} alt="" />
-            <h2 className="text-2xl hidden md:block font-normal">Volunteers</h2>
+            <h2 className="text-2xl hidden md:block font-normal text-white">Volunteers</h2>
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="gap-8 menu-horizontal  px-1 ">
+          <ul className="gap-8 menu-horizontal text-white px-1 ">
             {links}
           </ul>
         </div>
@@ -106,21 +163,7 @@ const NavBar = () => {
         
           
           {
-            user ? <div className='flex items-center '>
-              <div className="tooltip  tooltip-left" data-tip={user.displayName}>
-                <div className="dropdown dropdown-hover">
-                  <img className='h-10 hidden md:block rounded-full mr-4' src={user.photoURL} alt="" />
-                </div>
-              </div>
-              <div className="mr-8">
-                <details className="dropdown">
-                  <summary className="btn hover:bg-transparent text-xs md:text-base   bg-transparent py-0 text-blue-500 font-semibold px-0 border-none">My Profile</summary>
-                  <ul className="menu dropdown-content  rounded-box z-[1] w-52 p-2 shadow">
-                    <li className="bg-blue-500 text-white mb-2"><Link to='/add-volunteer-need-posts'>Add Volunteer need Post</Link></li>
-                    <li className="bg-blue-500 text-white"><Link to='/manage-my-posts'>Manage My Posts</Link></li>
-                  </ul>
-                </details>
-              </div>
+            user ?
               <div>
                 <button
                   className="  bg-blue-500 border-white text-white  md:px-6 px-2 py-2 text-xs  rounded-xl mr-4 md:text-sm hover:bg-transparent  hover:text-blue-500 hover:border-[#2f3941] transition-all duration-1000 ease-out "
@@ -130,18 +173,18 @@ const NavBar = () => {
                 </button>
               </div>
 
-            </div>
+          
               :
               <>
                 <Link
                   to="/volunteer/login"
-                  className=" border border-[#2f3941] px-6 py-2 rounded-xl mr-4 text-sm hover:bg-blue-500 hover:text-white hover:border-white transition-all duration-1000 ease-out "
+                  className="   px-6 py-2 rounded-xl mr-4 text-sm bg-white  text-[#3B82F6]  "
                 >
                   Login
                 </Link>
                 <Link
                   to="/volunteer/register"
-                  className=" border border-[#2f3941] px-6 py-2 rounded-xl mr-4 text-sm hover:bg-blue-500 hover:text-white hover:border-white transition-all duration-1000 ease-out "
+                  className=" px-6 py-2 rounded-xl mr-4 text-sm bg-white  text-[#3B82F6]  "
                 >
                   Register
                 </Link>
