@@ -55,7 +55,7 @@ const AllVolunteerPosts = () => {
           </ul>
         </details>
       </section>
-      <main className="grid md:grid-cols-3 grid-cols-1 gap-10 md:w-9/12 w-11/12 mx-auto mt-20 mb-24">
+      <main className="grid lg:grid-cols-2 xxl:grid-cols-3 grid-cols-1 gap-10 place-items-center xl:w-9/12 w-11/12 mx-auto mt-20 mb-24">
         {
           data.map(post => <VolunteerCard key={post._id} post={post}></VolunteerCard>)
         }

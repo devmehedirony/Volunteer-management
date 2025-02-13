@@ -4,7 +4,7 @@ import { MdMarkEmailRead, MdSubject } from "react-icons/md";
 const Contact = () => {
   return (
     <section className=" py-10">
-      <div className="container mx-auto px-4">
+      <div className="w-11/12 md:w-9/12 mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-6">
           Contact <span className="text-blue-500">us</span>
         </h2>

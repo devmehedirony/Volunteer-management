@@ -11,7 +11,7 @@ const OurVolunteers = () => {
         <h2 className="text-3xl font-bold mb-10">
           Our group of <span className="text-blue-600">volunteers</span>
         </h2>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
           <div className="bg-white shadow-lg rounded-2xl p-6 flex flex-col items-center">
             <img
               src={volunteer1}

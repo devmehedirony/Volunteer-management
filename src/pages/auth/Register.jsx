@@ -69,7 +69,7 @@ const Register = () => {
   }
 
   return (
-    <div>
+    <div className='mt-32'>
       <Helmet>
         <title>Register</title>
       </Helmet>
