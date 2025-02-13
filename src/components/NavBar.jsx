@@ -87,7 +87,7 @@ const NavBar = () => {
               }
               to='/manage-my-posts'
             >
-              Manage My Posts
+              My Posts
             </NavLink>
           </li>
 
@@ -98,7 +98,7 @@ const NavBar = () => {
                   ? 'bg-white  text-[#3B82F6] px-4 py-2 rounded-md text-base   font-medium'
                   : 'text-base'
               }
-              to='my-profile'
+              to='/my-profile'
             >
               MY Profile
             </NavLink>
@@ -164,14 +164,23 @@ const NavBar = () => {
           
           {
             user ?
-              <div>
-                <button
-                  className="  bg-blue-500 border-white text-white  md:px-6 px-2 py-2 text-xs  rounded-xl mr-4 md:text-sm hover:bg-transparent  hover:text-blue-500 hover:border-[#2f3941] transition-all duration-1000 ease-out "
-                  onClick={signOut}
-                >
-                  SignOut
-                </button>
+              <div className="flex items-center gap-4">
+                 <div className="tooltip  tooltip-left" data-tip={user.displayName}>
+                <div className="dropdown dropdown-hover">
+                    <img className='h-10 rounded-full ' src={user?.photoURL} alt="" />
+                </div>
+                </div>
+                
+                <div>
+                  <button
+                    className="  bg-white  text-blue-600  md:px-6 px-2 py-2 text-xs  rounded-xl mr-4 md:text-sm "
+                    onClick={signOut}
+                  >
+                    SignOut
+                  </button>
+                </div>
               </div>
+             
 
           
               :

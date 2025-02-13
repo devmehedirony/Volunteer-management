@@ -81,7 +81,7 @@ const ManageMyPost = () => {
     });
   }
   return (
-    <div>
+    <div className='mt-32'>
       <Helmet>
         <title>Manage My Profile</title>
       </Helmet>

@@ -35,7 +35,7 @@ const AddVolunteerPost = () => {
       })
   }
   return (
-    <div >
+    <div className="mt-24">
       <Helmet>
         <title>Add Volunteer need post</title>
       </Helmet>

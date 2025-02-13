@@ -48,14 +48,14 @@ const AllVolunteerPosts = () => {
       </header>
       <section className="flex justify-center gap-2 md:my-4 mt-10 px-4">
         <input onChange={e => setSearch(e.target.value)} type="text" placeholder="Type here" className="input input-bordered rounded-none w-full max-w-xs" />   <details className="dropdown ">
-          <summary className="btn text-xs  md:text-base bg-[#FFC311] text-white hover:bg-[#FFC311] rounded-none m-1">{sort ? sort : "Sort By"}</summary>
-          <ul className="menu dropdown-content bg-[#FFC311] text-white rounded-none z-[1] w-52 p-2 shadow">
+          <summary className="btn text-xs  md:text-base bg-blue-600 text-white hover:bg-blue-300 rounded-none m-1">{sort ? sort : "Sort By"}</summary>
+          <ul className="menu dropdown-content bg-blue-600 text-white rounded-none z-[1] w-52 p-2 shadow">
             <li onClick={() => handleSort('volunteerNeeded')}><a>volunteerNeeded</a></li>
             <li onClick={() => handleSort('Deadline')}><a>Deadline</a></li>
           </ul>
         </details>
       </section>
-      <main className="grid md:grid-cols-3 grid-cols-1 gap-10 md:w-9/12 w-11/12 mx-auto my-10">
+      <main className="grid md:grid-cols-3 grid-cols-1 gap-10 md:w-9/12 w-11/12 mx-auto mt-20 mb-24">
         {
           data.map(post => <VolunteerCard key={post._id} post={post}></VolunteerCard>)
         }
