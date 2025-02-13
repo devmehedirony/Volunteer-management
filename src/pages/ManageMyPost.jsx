@@ -16,12 +16,12 @@ const ManageMyPost = () => {
 
 
   useEffect(() => {
-    axios.get(`https://volunteer-management-server-liart.vercel.app/need-volunteer-my-post?email=${user.email}`, {
+    axios.get(`http://localhost:5000/need-volunteer-my-post?email=${user.email}`, {
       withCredentials: true
     })
       .then(res => setPosts(res.data))
 
-    axios.get(`https://volunteer-management-server-liart.vercel.app/be-a-volunteer?email=${user.email}`, {
+    axios.get(`http://localhost:5000/be-a-volunteer?email=${user.email}`, {
       withCredentials: true
     })
       .then(res => setRequseted(res.data))
@@ -38,7 +38,7 @@ const ManageMyPost = () => {
       confirmButtonText: "Yes, Cancel Request"
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`https://volunteer-management-server-liart.vercel.app/be-a-volunteer/${id}`)
+        axios.delete(`http://localhost:5000/be-a-volunteer/${id}`)
           .then(res => {
             if (res.data.deletedCount) {
               Swal.fire({
@@ -65,7 +65,7 @@ const ManageMyPost = () => {
       confirmButtonText: "Yes, Delete It"
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`https://volunteer-management-server-liart.vercel.app/need-volunteer-posts/${id}`)
+        axios.delete(`http://localhost:5000/need-volunteer-posts/${id}`)
           .then(res => {
             if (res.data.deletedCount) {
               Swal.fire({

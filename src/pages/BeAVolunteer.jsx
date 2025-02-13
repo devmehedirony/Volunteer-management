@@ -28,7 +28,7 @@ const BeAVolunteer = () => {
 
 
 
-    axios.post('https://volunteer-management-server-liart.vercel.app/be-a-volunteer', data)
+    axios.post('http://localhost:5000/be-a-volunteer', data)
       .then(res => {
         if (res.data.insertedId) {
           Swal.fire({
@@ -39,7 +39,7 @@ const BeAVolunteer = () => {
         }
       })
 
-    axios.patch(`https://volunteer-management-server-liart.vercel.app/volunteers-needed/${_id}`)
+    axios.patch(`http://localhost:5000/volunteers-needed/${_id}`)
 
 
   }

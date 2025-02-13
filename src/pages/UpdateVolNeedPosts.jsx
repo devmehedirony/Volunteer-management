@@ -27,7 +27,7 @@ const UpdateVolNeedPosts = () => {
 
 
 
-    axios.put(`https://volunteer-management-server-liart.vercel.app/need-volunteer-posts/${_id}`, data)
+    axios.put(`http://localhost:5000/need-volunteer-posts/${_id}`, data)
       .then(res => {
 
         if (res.data.modifiedCount) {

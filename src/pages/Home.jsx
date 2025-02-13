@@ -8,7 +8,7 @@ import Featured from "../components/Featured";
 const Home = () => {
   const [ascending, setAscending] = useState([])
   useEffect(() => {
-    axios.get('https://volunteer-management-server-liart.vercel.app/need-volunteer-posts?sort=ascending')
+    axios.get('http://localhost:5000/need-volunteer-posts?sort=ascending')
       .then(res => setAscending(res.data))
   }, [])
   return (
