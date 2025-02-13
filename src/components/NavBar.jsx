@@ -112,9 +112,9 @@ const NavBar = () => {
                 ? 'bg-white  text-[#3B82F6] px-4 py-2 rounded-md text-base   font-medium'
                 : 'text-base'
             }
-            to='/about-this-site'
+            to='/about'
           >
-            About This Site
+            About
           </NavLink>
         </li>
       }

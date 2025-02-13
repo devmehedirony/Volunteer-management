@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -15,18 +16,18 @@ const Footer = () => {
 
         
         <div>
-          <h3 className="text-lg font-semibold mb-4">Recent Posts</h3>
+          <h3 className="text-lg font-semibold mb-4">All Volunteers</h3>
           <ul>
             <li className="mb-2">
-              <a href="#" className="hover:underline">
-                Getting Helpless Childs Education
-              </a>
+              <Link to={'/all-volunteer-need-posts'} className="hover:underline">
+                All Volunteer Need Post
+              </Link>
               <p className="text-sm text-gray-400">July 5, 2023 / 0 Comments</p>
             </li>
             <li>
-              <a href="#" className="hover:underline">
-                Inspiring Volunteers
-              </a>
+              <Link to={'/manage-my-posts'} className="hover:underline">
+                Manage Your Posts
+              </Link>
               <p className="text-sm text-gray-400">July 5, 2023 / 0 Comments</p>
             </li>
           </ul>
@@ -37,25 +38,16 @@ const Footer = () => {
           <h3 className="text-lg font-semibold mb-4">Quick Link</h3>
           <ul>
             <li className="mb-2">
-              <a href="#" className="hover:underline">
-                About Us
-              </a>
+              <Link to={'/my-profile'} className="hover:underline">
+                My Profile
+              </Link>
             </li>
             <li className="mb-2">
-              <a href="#" className="hover:underline">
-                FAQs
-              </a>
+              <Link to={'/add-volunteer-need-posts'} className="hover:underline">
+               Need Post
+              </Link>
             </li>
-            <li className="mb-2">
-              <a href="#" className="hover:underline">
-                Our Gallery
-              </a>
-            </li>
-            <li>
-              <a href="#" className="hover:underline">
-                Our Testimonial
-              </a>
-            </li>
+           
           </ul>
         </div>
 

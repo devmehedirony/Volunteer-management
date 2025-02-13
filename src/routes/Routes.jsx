@@ -12,6 +12,7 @@ import ManageMyPost from "../pages/ManageMyPost";
 import UpdateVolNeedPosts from "../pages/UpdateVolNeedPosts";
 import Error from "../pages/Error";
 import MyProfile from "../pages/MyProfile";
+import About from "../components/About";
 
 
 
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
   {
     path: '/my-profile',
     element: <MyProfile></MyProfile>
+  },
+  {
+    path: '/about',
+    element: <About></About>
   }
 
 
